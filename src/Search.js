@@ -18,7 +18,7 @@ class Search extends Component {
                 <input onChange={this.setLatitude} name="lat" placeholder="Enter Latitude"></input>
                 <label htmlFor="long">Longitude</label>
                 <input onChange={this.setLongitude} name="long" placeholder="Enter Longitude"></input>
-                <button onClick={this.setInputs}>Submit</button>
+                <button onClick={this.handleFormSubmit}>Submit</button>
             </form>
             </>
           );
@@ -33,13 +33,16 @@ class Search extends Component {
             long: e.target.value,
         })
     }
-    handleFormSubmit = () => {
+    handleFormSubmit = (e) => {
+        e.preventDefault()
         console.log('Button has been clicked');
-        console.log((this.state.lat));
-        console.log((this.state.long));
-
+        let response = getAllTrails(this.state.lat, this.state.long)
+        .then((response) => {
+            console.log(response);
+        }).catch((error) => {
+            console.log('API Error');
+        })
      }
-    
 }
 
 export default Search;
