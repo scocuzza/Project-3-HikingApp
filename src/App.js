@@ -3,16 +3,16 @@ import TrailsContainer from './TrailsContainer';
 import Search from './Search';
 
 class App extends Component {
-  constructor(props) {
-    super(props)
-}
+
+  setTrails = (trails) => {
+    this.setState({ trails: trails });
+  }
 
   render() {
-  
     return(
       <>
       <h1>Hiking Trail application</h1>
-      <Search />
+      <Search setTrails={this.setTrails}/>
       <TrailsContainer trails={this.state.trails}/>
       </>
     )
