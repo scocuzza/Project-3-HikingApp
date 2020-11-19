@@ -43,5 +43,6 @@ class Search extends Component {
             console.log('API Error');
         })
      }
+}
     
 export default Search;
