@@ -14,4 +14,4 @@ class Trail extends Component {
 
 
 }
-export default Article;
+export default Trail;

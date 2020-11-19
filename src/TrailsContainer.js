@@ -16,4 +16,4 @@ class TrailsContainer extends Component {
 
 
 }
-export default Articles;
+export default TrailsContainer;
