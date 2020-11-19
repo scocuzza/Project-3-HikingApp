@@ -1,5 +1,12 @@
+@import url("https://fonts.google.com/specimen/Fredoka+One");
+
 .App {
   text-align: center;
+  background: url("./images/hiking-2.jpeg") no-repeat;
+  background-size: 30px; /** moved this property down */
+  float: left;
+  height: 50px;
+  width: 30px;
 }
 
 .App-logo {
@@ -36,9 +43,21 @@
     transform: rotate(360deg);
   }
 }
-.container {
+
+body {
   background-color: darkgrey;
   position: relative;
+  text-align: center;
+  background: url("./images/hiking-5.jpg") no-repeat;
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+  font-size: large;
+}
+.container {
+  text-align: center;
 }
 
 .child {

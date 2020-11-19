@@ -15,7 +15,7 @@ class TrailContainer extends Component {
 			<div>
 
 
-				<button type="submit" onClick={this.handleSubmit}>Get Gif</button>
+				<h1></h1>
 
 			</div>
 
