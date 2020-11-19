@@ -21,7 +21,7 @@ setTrails = (trails) => {
       <>
       <h1>Hiking Trail application</h1>
       <Search />
-      <TrailsContainer />
+      <TrailsContainer trails={this.state.trails}/>
       </>
     )
   }
