@@ -36,9 +36,8 @@ class Search extends Component {
     handleFormSubmit = (e) => {
         e.preventDefault()
         console.log('Button has been clicked');
-        let response = getAllTrails(this.state.lat, this.state.long)
-        .then((response) => {
-            console.log(response);
+        getAllTrails(this.state.lat, this.state.long).then((response) => {
+            this.props.setTrails(response.data.trails)
         }).catch((error) => {
             console.log('API Error');
         })
