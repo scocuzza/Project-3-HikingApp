@@ -36,3 +36,23 @@
     transform: rotate(360deg);
   }
 }
+.container {
+  background-color: darkgrey;
+  position: relative;
+}
+
+.child {
+  width: 50px;
+  height: 50px;
+  background-color: darkseagreen;
+  /* Center vertically and horizontally */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -25px 0 0 -25px; /* apply negative top and left margins to truly center the element */
+}
+ul {
+  list-style-type: square;
+  list-style-position: outside;
+  list-style-image: none;
+}
