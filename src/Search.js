@@ -1,5 +1,6 @@
 import './App.css';
-import { Component } from 'react';
+import React, { Component } from 'react';
+import { getAllTrails } from './api';
 
 class Search extends Component {
     constructor(props) {
@@ -14,17 +15,30 @@ class Search extends Component {
             <>
             <form>
                 <label htmlFor="lat">Latitude</label>
-                <input name="lat" placeholder="Enter Latitude"></input>
+                <input onChange={this.setLatitude} name="lat" placeholder="Enter Latitude"></input>
                 <label htmlFor="long">Longitude</label>
-                <input name="long" placeholder="Enter Longitude"></input>
+                <input onChange={this.setLongitude} name="long" placeholder="Enter Longitude"></input>
                 <button onClick={this.setInputs}>Submit</button>
             </form>
             </>
           );
     }
-    setInputs = (e) => {
-        console.log('Setting Inputs');
+    setLatitude = (e) => {
+        this.setState({
+            lat: e.target.value,
+        })
     }
+    setLongitude = (e) => {
+        this.setState({
+            long: e.target.value,
+        })
+    }
+    handleFormSubmit = () => {
+        console.log('Button has been clicked');
+        console.log((this.state.lat));
+        console.log((this.state.long));
+
+     }
     
 }
 
