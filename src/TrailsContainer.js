@@ -11,12 +11,26 @@ class TrailContainer extends Component {
 
 
 	render() {
+
+		let allTrails = <h4>No Trails selected.  Select a Trail location!</h4>
+
+		if (this.props.trails.length > 0) {
+			allTrails = this.props.trails.map((trail, index) => {
+				return <Trail name={this.props.name}
+							  type={this.props.type}	
+							  summary={this.props.summary}
+							  starts={this.props.stars}
+							  startVotes={this.props.starVotes}
+							  key={index} />
+			})
+		}
+
+
 		return (
 			<div>
-
-
+				<h3>Trails in your Area</h3>
+				{allTrails}
 				<button type="submit" onClick={this.handleSubmit}>Get Gif</button>
-
 			</div>
 
 		)

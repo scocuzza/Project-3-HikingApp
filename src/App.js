@@ -6,9 +6,14 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      potentiallySomeValues: '',
+      trails: [],
     }
 }
+
+setTrails = (trails) => {
+  this.setState({ trails: trails })
+}
+
 
   render() {
   
