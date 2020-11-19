@@ -58,17 +58,15 @@ body {
 }
 .container {
   text-align: center;
+
+  background-color: darkseagreen;
 }
 
 .child {
-  width: 50px;
-  height: 50px;
-  background-color: darkseagreen;
-  /* Center vertically and horizontally */
   position: absolute;
   top: 50%;
   left: 50%;
-  margin: -25px 0 0 -25px; /* apply negative top and left margins to truly center the element */
+  transform: translate(-50%, -50%);
 }
 ul {
   list-style-type: square;
