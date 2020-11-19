@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import TrailsContainer from './articles/components/TrailsContainer';
+import TrailsContainer from './TrailsContainer';
+import Search from './Search';
 
 class App extends Component {
 
@@ -8,6 +9,7 @@ class App extends Component {
     return(
       <>
       <h1>Hiking Trail application</h1>
+      <Search />
       <TrailsContainer />
       </>
     )
