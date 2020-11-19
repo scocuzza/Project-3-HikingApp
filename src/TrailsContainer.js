@@ -19,8 +19,8 @@ class TrailContainer extends Component {
 				return <Trail name={this.props.name}
 							  type={this.props.type}	
 							  summary={this.props.summary}
-							  starts={this.props.stars}
-							  startVotes={this.props.starVotes}
+							  stars={this.props.stars}
+							  starVotes={this.props.starVotes}
 							  key={index} />
 			})
 		}
