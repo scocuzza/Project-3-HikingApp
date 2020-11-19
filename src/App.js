@@ -3,6 +3,12 @@ import TrailsContainer from './TrailsContainer';
 import Search from './Search';
 
 class App extends Component {
+    constructor(props) {
+      super(props)
+      this.state={
+        trails: [],
+      } 
+    }
 
   setTrails = (trails) => {
     this.setState({ trails: trails });

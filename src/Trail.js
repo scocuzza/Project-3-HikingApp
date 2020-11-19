@@ -32,7 +32,7 @@ class Trail extends Component {
 		return (
 			<>
 				<div className="container" >
-					<div class="child">
+					<div className="child">
 						<ul>
 
 							<li>{this.props.name} </li>
