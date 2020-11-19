@@ -1,7 +1,9 @@
 import './App.css';
-import { Component } from 'react';
+import React, { Component } from 'react';
+import { getAllTrails } from './api';
 
 class Search extends Component {
+
 	constructor(props) {
 		super(props)
 		this.state = {
@@ -11,25 +13,36 @@ class Search extends Component {
 	}
 	render() {
 		return (
-
-			<div className="container">
-
+			<>
 				<form>
 					<label htmlFor="lat">Latitude</label>
-					<input name="lat" placeholder="Enter Latitude"></input>
+					<input onChange={this.setLatitude} name="lat" placeholder="Enter Latitude"></input>
 					<label htmlFor="long">Longitude</label>
-					<input name="long" placeholder="Enter Longitude"></input>
-					<button onClick={this.setInputs}>Submit</button>
+					<input onChange={this.setLongitude} name="long" placeholder="Enter Longitude"></input>
+					<button onClick={this.handleFormSubmit}>Submit</button>
 				</form>
-
-			</div>
-
+			</>
 		);
 	}
-	setInputs = (e) => {
-		console.log('Setting Inputs');
+	setLatitude = (e) => {
+		this.setState({
+			lat: e.target.value,
+		})
 	}
-
+	setLongitude = (e) => {
+		this.setState({
+			long: e.target.value,
+		})
+	}
+	handleFormSubmit = (e) => {
+		e.preventDefault()
+		console.log('Button has been clicked');
+		getAllTrails(this.state.lat, this.state.long).then((response) => {
+			this.props.setTrails(response.data.trails)
+		}).catch((error) => {
+			console.log('API Error');
+		})
+	}
 }
 
 export default Search;
