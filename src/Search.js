@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { getAllTrails } from './api';
 
 class Search extends Component {
+  
     constructor(props) {
         super(props)
         this.state = {
@@ -42,6 +43,5 @@ class Search extends Component {
             console.log('API Error');
         })
      }
-}
-
+    
 export default Search;
