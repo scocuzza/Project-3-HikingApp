@@ -7,7 +7,7 @@ class TrailsContainer extends Component {
 		//consditional rendering
 		return (
 			<>
-				<h3>All Articles</h3>
+				<h3>All Trails</h3>
 
 			</>
 		)
