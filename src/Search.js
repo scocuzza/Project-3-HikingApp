@@ -14,13 +14,18 @@ class Search extends Component {
 	render() {
 		return (
 			<>
-				<form>
-					<label htmlFor="lat">Latitude</label>
-					<input onChange={this.setLatitude} name="lat" placeholder="Enter Latitude"></input>
-					<label htmlFor="long">Longitude</label>
-					<input onChange={this.setLongitude} name="long" placeholder="Enter Longitude"></input>
-					<button onClick={this.handleFormSubmit}>Submit</button>
-				</form>
+				<div className="container">
+					<div className="child">
+
+						<form>
+							<label htmlFor="lat">Latitude</label>
+							<input onChange={this.setLatitude} name="lat" placeholder="Enter Latitude"></input>
+							<label htmlFor="long">Longitude</label>
+							<input onChange={this.setLongitude} name="long" placeholder="Enter Longitude"></input>
+							<button onClick={this.handleFormSubmit}>Submit</button>
+						</form>
+					</div>
+				</div>
 			</>
 		);
 	}
@@ -38,6 +43,7 @@ class Search extends Component {
 		e.preventDefault()
 		console.log('Button has been clicked');
 		getAllTrails(this.state.lat, this.state.long).then((response) => {
+			console.log(response.data);
 			this.props.setTrails(response.data.trails)
 		}).catch((error) => {
 			console.log('API Error');
