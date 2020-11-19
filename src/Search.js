@@ -13,6 +13,7 @@ class Search extends Component {
 		return (
 
 			<div className="container">
+
 				<form>
 					<label htmlFor="lat">Latitude</label>
 					<input name="lat" placeholder="Enter Latitude"></input>
@@ -20,6 +21,7 @@ class Search extends Component {
 					<input name="long" placeholder="Enter Longitude"></input>
 					<button onClick={this.setInputs}>Submit</button>
 				</form>
+
 			</div>
 
 		);
