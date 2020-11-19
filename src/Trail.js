@@ -34,11 +34,14 @@ class Trail extends Component {
 				<div className="container" >
 					<div class="child">
 						<ul>
+
 							<li>{this.props.name} </li>
 							<li>{this.props.type} </li>
 							<li>{this.props.summary} </li>
 							<li>{this.props.stars} </li>
 							<li>{this.props.starVotes} </li>
+							<li>{this.props.imgSmall} </li>
+
 						</ul>
 					</div>
 				</div>

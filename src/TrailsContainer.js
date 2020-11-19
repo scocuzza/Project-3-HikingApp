@@ -25,7 +25,6 @@ class TrailContainer extends Component {
 			})
 		}
 
-
 		return (
 			<div>
 				<h3>Trails in your Area</h3>
