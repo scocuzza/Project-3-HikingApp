@@ -47,6 +47,7 @@ img {
 
 .grid-container {
   display: grid;
+  justify-content: space-around;
   background-color: white;
   grid-template-columns: auto auto auto auto;
   row-gap: 10px;
