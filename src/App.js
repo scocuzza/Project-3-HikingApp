@@ -17,7 +17,7 @@ class App extends Component {
   render() {
     return(
       <>
-      <h1>Hiking Trail application</h1>
+      <h1>Hiking Trail</h1>
       <Search setTrails={this.setTrails}/>
       <TrailsContainer trails={this.state.trails}/>
       </>

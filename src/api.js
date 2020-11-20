@@ -13,7 +13,16 @@ const getAllTrails = (lat, long) => {
 	})
  }
 
-export {getAllTrails}
+ const getLocationInfo = (location) => {
+	 return axios.get(`${process.env.REACT_APP_LOCATION_BASE_URL}`, {
+		 params: {
+			 key: process.env.REACT_APP_LOCATION_API_KEY,
+			 location: location
+		 }
+	 })
+ }
+
+export {getAllTrails, getLocationInfo}
 
 
 
