@@ -25,22 +25,23 @@ import React, { Component } from 'react';
 "conditionDate": "2020-09-16 14:37:11"
 */
 
-
-
 class Trail extends Component {
 	render() {
 		return (
-			<>
-
-
-				Name:	    {this.props.name} <br />
-					Type:	    {this.props.type}<br />
-					Summary:	{this.props.summary}<br />
-					Star:	    {this.props.stars}<br />
-					Location	{this.props.location}<br />
-
-
-			</>
+				<div className="column" >
+					<div className="card">
+						<div className="card-title">
+							<img src={this.props.trail.imgSqSmall}></img>
+							<p>Stars: {this.props.trail.stars}</p>
+						</div>
+						<div className="card-detail">
+							<p>{this.props.trail.name}</p>
+							<p>Length {this.props.trail.length} Miles</p>
+						</div>
+						<p>{this.props.trail.summary}</p>
+						<p>Location: {this.props.trail.location}</p>
+					</div>
+				</div>
 		)
 	}
 

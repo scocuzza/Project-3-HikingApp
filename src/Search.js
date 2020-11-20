@@ -15,9 +15,9 @@ class Search extends Component {
 	render() {
 		return (
 			<>
-				<div className="container">
+				<div className="search-container">
+                    <h1 class="appTitle">Hiking Trails</h1>
 					<div className="child">
-
 						<form>
 							<label htmlFor="location">Location</label>
 							<input onChange={this.setLocation} name="location" placeholder="Enter Location"></input>
@@ -53,7 +53,7 @@ class Search extends Component {
             	console.log(response.data);
             	this.props.setTrails(response.data.trails)
             }).catch((error) => {
-            	console.log('API Error');
+            	console.log('API Error' + error);
             })
         }).catch((error)=>{
             console.log('API error', + error);

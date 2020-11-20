@@ -3,40 +3,19 @@
 .App {
   text-align: center;
 }
+header {
+  background: url("./images/hikingHeader2.jpg");
+  height: 250px;
+  color: white;
+  margin-top: -30px;
+}
+.search-container {
+  margin-top: 30px;
+}
 
 body {
-  background-color: darkgrey;
-  position: relative;
   text-align: center;
-  background: url("./images/hiking-5.jpg") no-repeat;
-
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 100%;
-  font-size: large;
-}
-.container {
-  padding-top: 10px;
-  margin-left: 100px;
-  margin-right: 100px;
-  padding-bottom: 10px;
-  text-align: center;
-  height: 100px;
-}
-
-.child {
-  position: absolute;
-  height: 100px;
-  top: 20%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: darkseagreen;
-}
-ul {
-  list-style-type: square;
-  list-style-position: outside;
-  list-style-image: none;
+  font-size: 12px;
 }
 
 input[type="text"] {
@@ -58,23 +37,65 @@ button {
   -webkit-border-radius: 5px;
   border-radius: 5px;
 }
-.main {
-  margin-top: 10px;
-  width: 800px;
-  margin-left: 500px;
+ul {
+  list-style-type: none;
 }
-.left {
-  width: 200px;
-  height: 400px;
-  float: left;
-  font-size: medium;
-  background-color: wheat;
+img {
+  border-radius: 10px;
 }
 
-.right {
-  width: 200px;
-  height: 400px;
-  margin-left: 200px;
-  font-size: x-small;
-  background-color: goldenrod;
+.grid-container {
+  display: grid;
+  background-color: white;
+  grid-template-columns: auto auto auto;
+  row-gap: 10px;
+  column-gap: 10px;
+  padding: 10px;
+}
+.grid-item {
+  text-align: left;
+  padding-right: 5px;
+}
+
+/* Float four columns side by side */
+.column {
+  float: left;
+  padding: 0 10px;
+  max-width: 300px;
+}
+
+/* Remove extra left and right margins, due to padding */
+.row {margin: 0 -5px;}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive columns */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}
+
+/* Style the counter cards */
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  margin-bottom: 10px;
+  text-align: left;
+  background-color: #f1f1f1;
+}
+.card-title {
+  display: flex;
+  justify-content: space-around;
+}
+.card-detail {
+  display: flex;
+  justify-content: space-around;
+  border-bottom: solid grey;
 }
