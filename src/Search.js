@@ -1,6 +1,6 @@
 import './App.css';
 import React, { Component } from 'react';
-import { getAllTrails } from './api';
+import { getAllTrails, getLocationInfo  } from './api';
 
 class Search extends Component {
 
@@ -8,7 +8,8 @@ class Search extends Component {
 		super(props)
 		this.state = {
 			lat: 0,
-			long: 0
+            long: 0,
+            location: ''
 		}
 	}
 	render() {
@@ -18,10 +19,8 @@ class Search extends Component {
 					<div className="child">
 
 						<form>
-							<label htmlFor="lat">Latitude</label>
-							<input onChange={this.setLatitude} name="lat" placeholder="Enter Latitude"></input>
-							<label htmlFor="long">Longitude</label>
-							<input onChange={this.setLongitude} name="long" placeholder="Enter Longitude"></input>
+							<label htmlFor="location">Location</label>
+							<input onChange={this.setLocation} name="location" placeholder="Enter Location"></input>
 							<button onClick={this.handleFormSubmit}>Submit</button>
 						</form>
 					</div>
@@ -38,16 +37,28 @@ class Search extends Component {
 		this.setState({
 			long: e.target.value,
 		})
-	}
+    }
+    setLocation = (e) => {
+        this.setState({
+            location: e.target.value
+        })
+    }
 	handleFormSubmit = (e) => {
 		e.preventDefault()
-		console.log('Button has been clicked');
-		getAllTrails(this.state.lat, this.state.long).then((response) => {
-			console.log(response.data);
-			this.props.setTrails(response.data.trails)
-		}).catch((error) => {
-			console.log('API Error');
-		})
+        console.log('Button has been clicked');
+        getLocationInfo(this.state.location).then((response)=> {
+            console.log(response.data.results[0].locations[0].latLng);
+            const LatLong = response.data.results[0].locations[0].latLng
+            getAllTrails(LatLong.lat, LatLong.lng).then((response) => {
+            	console.log(response.data);
+            	this.props.setTrails(response.data.trails)
+            }).catch((error) => {
+            	console.log('API Error');
+            })
+        }).catch((error)=>{
+            console.log('API error', + error);
+        })
+		
 	}
 }
 
