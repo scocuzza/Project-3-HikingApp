@@ -7,7 +7,8 @@ const getAllTrails = (lat, long) => {
 			lat: lat,
 			lon: long,
 			key: process.env.REACT_APP_API_KEY,
-			maxDistance: 10
+			maxDistance: 10,
+			maxResults: 2
 		}
 	})
  }
