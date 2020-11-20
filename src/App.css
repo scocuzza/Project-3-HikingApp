@@ -84,7 +84,7 @@ img {
 
 /* Style the counter cards */
 .card {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 6px 6px 12px 0 rgba(0, 0, 0, 0.2);
   padding: 16px;
   margin-bottom: 10px;
   text-align: left;
@@ -98,4 +98,7 @@ img {
   display: flex;
   justify-content: space-around;
   border-bottom: solid grey;
+}
+.difficulty {
+  margin-top: 5px;
 }
