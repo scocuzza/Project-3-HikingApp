@@ -21,7 +21,7 @@ class Search extends Component {
 						<form>
 							<label htmlFor="location">Location</label>
 							<input onChange={this.setLocation} name="location" placeholder="Enter Location" value={this.state.location}></input>
-							<button onClick={this.handleFormSubmit}>Submit</button>
+							<button type="button" onClick={this.getTrailData}>Submit</button>
 						</form>
 					</div>
 				</div>
@@ -29,7 +29,7 @@ class Search extends Component {
 		);
     }
     componentDidMount() {
-        this.runDefault()
+        this.getTrailData()
     }
 	setLatitude = (e) => {
 		this.setState({
@@ -46,31 +46,12 @@ class Search extends Component {
             location: e.target.value
         })
     }
-    runDefault = () => {
+    getTrailData = () => {
         console.log('Getting Location..');
         getLocationInfo(this.state.location).then((response)=> {
             console.log('Getting Trails..');
             console.log(response.data.results[0].locations[0].latLng);
             const LatLong = response.data.results[0].locations[0].latLng
-            getAllTrails(LatLong.lat, LatLong.lng).then((response) => {
-            	console.log(response.data);
-            	this.props.setTrails(response.data.trails)
-            }).catch((error) => {
-            	console.log('API Error' + error);
-            })
-        }).catch((error)=>{
-            console.log('API error', + error);
-        })
-		
-	}
-	handleFormSubmit = (e) => {
-		e.preventDefault()
-        console.log('Button has been clicked');
-        console.log('Getting Location..');
-        getLocationInfo(this.state.location).then((response)=> {
-            console.log(response.data.results[0].locations[0].latLng);
-            const LatLong = response.data.results[0].locations[0].latLng
-            console.log('Getting Trails..');
             getAllTrails(LatLong.lat, LatLong.lng).then((response) => {
             	console.log(response.data);
             	this.props.setTrails(response.data.trails)
