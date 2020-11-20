@@ -9,7 +9,7 @@ class Search extends Component {
 		this.state = {
 			lat: 0,
             long: 0,
-            location: ''
+            location: 'Yosemite,CA'
 		}
 	}
 	render() {
@@ -20,14 +20,17 @@ class Search extends Component {
 					<div className="child">
 						<form>
 							<label htmlFor="location">Location</label>
-							<input onChange={this.setLocation} name="location" placeholder="Enter Location"></input>
+							<input onChange={this.setLocation} name="location" placeholder="Enter Location" value={this.state.location}></input>
 							<button onClick={this.handleFormSubmit}>Submit</button>
 						</form>
 					</div>
 				</div>
 			</>
 		);
-	}
+    }
+    componentDidMount() {
+        this.runDefault()
+    }
 	setLatitude = (e) => {
 		this.setState({
 			lat: e.target.value,
@@ -43,6 +46,21 @@ class Search extends Component {
             location: e.target.value
         })
     }
+    runDefault = () => {
+        getLocationInfo(this.state.location).then((response)=> {
+            console.log(response.data.results[0].locations[0].latLng);
+            const LatLong = response.data.results[0].locations[0].latLng
+            getAllTrails(LatLong.lat, LatLong.lng).then((response) => {
+            	console.log(response.data);
+            	this.props.setTrails(response.data.trails)
+            }).catch((error) => {
+            	console.log('API Error' + error);
+            })
+        }).catch((error)=>{
+            console.log('API error', + error);
+        })
+		
+	}
 	handleFormSubmit = (e) => {
 		e.preventDefault()
         console.log('Button has been clicked');
