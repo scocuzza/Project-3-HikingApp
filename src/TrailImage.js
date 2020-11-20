@@ -27,17 +27,14 @@ import React, { Component } from 'react';
 
 
 
-class Trail extends Component {
+class TrailImage extends Component {
 	render() {
 		return (
 			<>
 
 
-				Name:	    {this.props.name} <br />
-					Type:	    {this.props.type}<br />
-					Summary:	{this.props.summary}<br />
-					Star:	    {this.props.stars}<br />
-					Location	{this.props.location}<br />
+				TrailImage:	    {this.props.imgMedium} <br />
+
 
 
 			</>
@@ -46,4 +43,4 @@ class Trail extends Component {
 
 
 }
-export default Trail;
+export default TrailImage;
