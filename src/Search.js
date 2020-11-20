@@ -47,7 +47,9 @@ class Search extends Component {
         })
     }
     runDefault = () => {
+        console.log('Getting Location..');
         getLocationInfo(this.state.location).then((response)=> {
+            console.log('Getting Trails..');
             console.log(response.data.results[0].locations[0].latLng);
             const LatLong = response.data.results[0].locations[0].latLng
             getAllTrails(LatLong.lat, LatLong.lng).then((response) => {
@@ -64,9 +66,11 @@ class Search extends Component {
 	handleFormSubmit = (e) => {
 		e.preventDefault()
         console.log('Button has been clicked');
+        console.log('Getting Location..');
         getLocationInfo(this.state.location).then((response)=> {
             console.log(response.data.results[0].locations[0].latLng);
             const LatLong = response.data.results[0].locations[0].latLng
+            console.log('Getting Trails..');
             getAllTrails(LatLong.lat, LatLong.lng).then((response) => {
             	console.log(response.data);
             	this.props.setTrails(response.data.trails)
