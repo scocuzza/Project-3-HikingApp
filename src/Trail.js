@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import TrailImage from './TrailImage';
 /*
 "id": 7011192,
 "name": "Boulder Skyline Traverse",
@@ -9,7 +10,7 @@ import React, { Component } from 'react';
 "starVotes": 93,
 "location": "Superior, Colorado",
 "url": "https://www.hikingproject.com/trail/7011192/boulder-skyline-traverse",
-"imgSqSmall": "https://cdn2.apstatic.com/photos/hike/7039883_sqsmall_1555092747.jpg",
+"imgSqSmall": "https://cdn2.apstatic.com/photos/hike/7039883_small_1555092747.jpg",
 "imgSmall": "https://cdn2.apstatic.com/photos/hike/7039883_small_1555092747.jpg",
 "imgSmallMed": "https://cdn2.apstatic.com/photos/hike/7039883_smallMed_1555092747.jpg",
 "imgMedium": "https://cdn2.apstatic.com/photos/hike/7039883_medium_1555092747.jpg",
@@ -31,13 +32,22 @@ class Trail extends Component {
 	render() {
 		return (
 			<>
+			<div className="grid-item">
+				<div className="div-item-picture">
+				<TrailImage  imgSmall={this.props.imgSmall} />
+				</div>
+				<div className="div-item-difficulty">
+					Level: {this.props.difficulty}
+				</div>
+				<div className="div-item-information">
+				Name:	    {this.props.name}<br/>
+				Type:	    {this.props.type}<br/>
+				Summary:	{this.props.summary}<br/>
+				Star:	    {this.props.stars}<br/>
+				Location:	{this.props.location}<br/>
+				</div>
 
-
-				Name:	    {this.props.name} <br />
-					Type:	    {this.props.type}<br />
-					Summary:	{this.props.summary}<br />
-					Star:	    {this.props.stars}<br />
-					Location	{this.props.location}<br />
+			</div>
 
 
 			</>
