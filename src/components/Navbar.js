@@ -33,14 +33,12 @@ class Navbar extends Component {
 		console.log(this.props);
 		return (
 			<div className="navbar-div">
-				<header className="navbar App-header" id="nav-container">
-					<div className="col-4" >
 						{loggedIn ? (
-							<section className="navbar-section">
-								<Link to="#" className="btn btn-link text-secondary" onClick={this.logout}>
-									<span className="text-secondary">logout</span></Link>
-
-							</section>
+								<ul className="navbar-list">
+									<Link to="#" onClick={this.logout} className="Link">
+										<li>logout</li>
+									</Link>
+								</ul>
 						) : (
 								<ul className="navbar-list">
 									<Link to="/" className="Link">
@@ -54,9 +52,6 @@ class Navbar extends Component {
 									</Link>
 								</ul>
 							)}
-					</div>
-
-				</header>
 			</div>
 
 		);
