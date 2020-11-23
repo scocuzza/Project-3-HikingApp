@@ -21,7 +21,7 @@ class Home extends Component {
 		return (
 			<>
 				<Header setTrails={this.setTrails} />
-				<TrailsContainer trails={this.state.trails} />
+				<TrailsContainer trails={this.state.trails} setCurrentTrail={this.props.setCurrentTrail} />
 
 			</>
 		)

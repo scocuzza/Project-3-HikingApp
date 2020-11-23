@@ -8,7 +8,9 @@ import Home from './components/Home'
 import TrailsContainer from './TrailsContainer';
 import Search from './Search';
 import Trail from './Trail';
+import Details from './components/Details';
 import axios from 'axios'
+
 
 class App extends Component {
 	constructor(props) {
@@ -17,12 +19,17 @@ class App extends Component {
 			loggedIn: false,
 			username: null,
 			trails: [],
+			currentTrail: [],
 			updateuser: ''
 		}
 	}
-
+	
 	setTrails = (trails) => {
 		this.setState({ trails: trails });
+	}
+	setCurrentTrail = (currentTrail) => {
+		console.log('in set current trail' + currentTrail.name)
+		this.setState({ currentTrail: currentTrail });
 	}
 	setUpdateUser = (updateuser) => {
 		this.setState({ updateuser: updateuser });
@@ -61,11 +68,15 @@ class App extends Component {
 				<div>
 					<BrowserRouter>
 						<Navbar updateUser={this.state.updateUser} loggedIn={this.state.loggedIn} />
-						<Route exact path="/" component={Home} trails={this.state.trails} />
+						<Route path="/" render={() => <Home setCurrentTrail={this.setCurrentTrail}/>} />
+
+						
 						<Route path="/login"
 							render={() => <LoginForm updateUser={this.updateUser} />} />
 						<Route path="/register"
 							render={() => <Signup />}/>
+						<Route path="/details" render={() => <Details trail={this.state.currentTrail}/>} />
+						{/* <Route path="/details" render={() => <Details currentTrail={this.state.currentTrail}/>}/> */}
 					</BrowserRouter>
 				</div>
 
