@@ -6,6 +6,12 @@ const Schema = mongoose.Schema;
 let userschema = new Schema({
 	email: String,
 	password: String,
+	favorites: [
+		{
+		  type: mongoose.Schema.Types.ObjectId,
+		  ref: 'Favorites',
+		}
+	]
 });
 
 userschema.methods.generateHash = function (password) {

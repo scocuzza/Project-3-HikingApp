@@ -5,8 +5,9 @@ let passport = require('passport');
 let crypto = require('crypto');
 let LocalStrategy = require('passport-local').Strategy;
 const port = process.env.PORT || 5000;
-const reactPort = 3001;
+const reactPort = 3000;
 const cors = require('cors');
+
 
 const MongoStore = require('connect-mongo')(session);
 // Set CORS headers on response from this API using the `cors` NPM package.
@@ -20,6 +21,10 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+
+
+// Set CORS headers on response from this API using the `cors` NPM package.
+app.use(cors({ origin: process.env.CLIENT_ORIGIN || `http://localhost:${reactPort}` }));
 /**
  * -------------- DATABASE ----------------
  */
@@ -89,6 +94,7 @@ passport.serializeUser(function (user, cb) {
 
 passport.deserializeUser(function (id, cb) {
 	User.findById(id, function (err, user) {
+		console.log('found user', user)
 		if (err) { return cb(err); }
 		cb(null, user);
 	});
@@ -99,6 +105,9 @@ passport.deserializeUser(function (id, cb) {
 const sessionStore = new MongoStore({ mongooseConnection: connection, collection: 'sessions' })
 
 
+
+
+app.options('*', cors())
 app.use(session({
 	//secret: process.env.SECRET,
 	secret: 'some secret',
@@ -140,7 +149,9 @@ app.get('/login', (req, res, next) => {
 });
 
 
-app.post('/login', passport.authenticate('local', { failureRedirect: '/login-failure', successRedirect: 'login-success' }), (err, req, res, next) => {
+app.post('/login', passport.authenticate('local', { failureRedirect: '/login-failure', successRedirect: '/login-success' }), (err, req, res, next) => {
+	console.log('request===>', req);
+	console.log(res)
 	if (err) next(err);
 });
 
@@ -182,9 +193,15 @@ app.get('/protected-route', (req, res, next) => {
 
 
 	if (req.isAuthenticated()) {
-		res.send('<h1>You are authenticated</h1><p><a href="/logout">Logout and reload</a></p>');
+		console.log('i am authenticated')
+		res.redirect('/');
+
+		//res.send('<h1>You are authenticated</h1><p><a href="/logout">Logout and reload</a></p>');
 	} else {
-		res.send('<h1>You are not authenticated</h1><p><a href="/login">Login</a></p>');
+		console.log('i am not authenticated')
+		res.redirect('/login');
+
+		//res.send('<h1>You are not authenticated</h1><p><a href="/login">Login</a></p>');
 	}
 });
 
@@ -195,7 +212,12 @@ app.get('/logout', (req, res, next) => {
 });
 
 app.get('/login-success', (req, res, next) => {
-	res.send('<p>You successfully logged in. --> <a href="/protected-route">Go to protected route</a></p>');
+	//console.log('request===>', req)
+	console.log('response===>', res)
+	console.log('request======>', req)
+	//res.redirect('/');
+	//app.get('/login-success', (req, res, next) => {
+	res.send(`<p>You successfully logged in. --> <a href="/protected-route">Go to protected route  )</a> ${req.body.username}</p>`);
 });
 
 app.get('/login-failure', (req, res, next) => {
@@ -205,7 +227,7 @@ app.get('/login-failure', (req, res, next) => {
 
 
 
-app.use(cors('http://localhost:3001'));
+app.use(cors('http://localhost:3000'));
 
 
 /**

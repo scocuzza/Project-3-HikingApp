@@ -1,8 +1,8 @@
 {
-  "name": "twitter-react-backend",
+  "name": "hiking-react-backend",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

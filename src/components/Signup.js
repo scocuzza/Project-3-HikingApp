@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import Navbar from './Navbar'
 
 class Signup extends Component {
 	constructor() {
@@ -33,7 +34,7 @@ class Signup extends Component {
 				if (!response.data.errmsg) {
 					console.log('successful signup')
 					this.setState({ //redirect to login page
-						redirectTo: '/login'
+						redirectTo: '/'
 					})
 				} else {
 					console.log('username already taken')
@@ -48,7 +49,12 @@ class Signup extends Component {
 
 	render() {
 		return (
+			<>
+			<header className="main-header">
+						<Navbar />
+			</header>
 			<div className="SignupForm">
+				
 				<h4>Sign up</h4>
 				<form className="form-horizontal">
 					<div className="form-group">
@@ -90,7 +96,7 @@ class Signup extends Component {
 					</div>
 				</form>
 			</div>
-
+			</>
 		)
 	}
 }

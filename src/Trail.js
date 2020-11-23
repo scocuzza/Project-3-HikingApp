@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Details from './components/Details';
 import { BrowserRouter as BrowserRouter, Route, Link } from 'react-router-dom'
+
 
 /*
 "id": 7011192,
@@ -34,7 +34,7 @@ class Trail extends Component {
 				<div className="column" >
 					<div className="card">
 						<div className="card-title">
-							<img src={this.props.trail.imgSqSmall}></img>
+							<img src={this.props.trail.imgSqSmall} alt=""></img>
 							<div className="difficulty">
 								<p><b>Stars</b> {this.props.trail.stars}</p>
 								<p><b>Difficulty</b> {this.props.trail.difficulty.toUpperCase()}</p>
@@ -47,10 +47,8 @@ class Trail extends Component {
 						</div>
 						<p>{this.props.trail.summary}</p>
 						<p>Location: {this.props.trail.location}</p>
-						<Link to="/details" onClick={()=> {this.props.setCurrentTrail(this.props.trail)}}>More Details</Link>
-						{/* <Route path="/details" render={() => <Details trail={this.props.trail}/>} /> */}
-						</div>
-						{/* <Route exact path="/details" component={Details} trail={this.trail} /> */}
+						<Link to='/details' onClick={()=> {this.props.setCurrentTrail(this.props.trail)}}>More Details</Link>
+					</div>
 				</div>
 		)
 		
