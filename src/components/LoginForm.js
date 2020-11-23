@@ -7,18 +7,11 @@ class LoginForm extends Component {
 	constructor() {
 		super()
 		this.state = {
-			username: '',
-			password: '',
-			updateUser: '',
 			redirectTo: null
 		}
 		this.handleSubmit = this.handleSubmit.bind(this)
 		this.handleChange = this.handleChange.bind(this)
 
-	}
-
-	setUpdateUser = (updateUser) => {
-		this.setState({ updateUser: updateUser });
 	}
 
 	handleChange(event) {
@@ -44,14 +37,16 @@ class LoginForm extends Component {
 					// update App.js state
 					console.log('reponse data', response.data)
 					console.log('reponse config===username>', response.config.data)
-					console.log('reponse config===username>', response.config.data.username)
+					var data = JSON.parse(response.config.data);
+					console.log('reponse config===username>', data.username)
 					//this.state.updateUser({
 					//	loggedIn: true,
 					//	username: response.data.username
 					//})
 					// update the state to redirect to home
+					this.props.setUsername(data.username)
+					this.props.loggedIn(true)
 					this.setState({
-						updateUser: response.data.username,
 						redirectTo: '/'
 					})
 				}

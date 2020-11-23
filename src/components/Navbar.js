@@ -29,6 +29,7 @@ class Navbar extends Component {
 
 	render() {
 		const loggedIn = this.props.loggedIn;
+		const username = this.props.username
 		console.log('navbar render, props: ')
 		console.log(this.props);
 		return (
@@ -38,6 +39,7 @@ class Navbar extends Component {
 									<Link to="#" onClick={this.logout} className="Link">
 										<li className="navbar-right">logout</li>
 									</Link>
+										<li className="navbar-left">{username}</li>
 								</ul>
 						) : (
 								<ul className="navbar-list">
