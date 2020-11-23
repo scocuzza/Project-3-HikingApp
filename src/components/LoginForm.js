@@ -1,13 +1,12 @@
 import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
 import axios from 'axios'
+import Navbar from './Navbar'
 
 class LoginForm extends Component {
 	constructor() {
 		super()
 		this.state = {
-			username: '',
-			password: '',
 			redirectTo: null
 		}
 		this.handleSubmit = this.handleSubmit.bind(this)
@@ -31,15 +30,22 @@ class LoginForm extends Component {
 				password: this.state.password
 			})
 			.then(response => {
-				console.log('login response: ')
-				console.log(response)
+				console.log(response.status)
+				console.log('====login response: ======')
+				console.log(response.data)
 				if (response.status === 200) {
 					// update App.js state
-					this.props.updateUser({
-						loggedIn: true,
-						username: response.data.username
-					})
+					console.log('reponse data', response.data)
+					console.log('reponse config===username>', response.config.data)
+					var data = JSON.parse(response.config.data);
+					console.log('reponse config===username>', data.username)
+					//this.state.updateUser({
+					//	loggedIn: true,
+					//	username: response.data.username
+					//})
 					// update the state to redirect to home
+					this.props.setUsername(data.username)
+					this.props.loggedIn(true)
 					this.setState({
 						redirectTo: '/'
 					})
@@ -57,6 +63,9 @@ class LoginForm extends Component {
 		} else {
 			return (
 				<div>
+					<header className="main-header">
+						<Navbar />
+					</header>
 					<h4>Login</h4>
 					<form className="form-horizontal">
 						<div className="form-group">
