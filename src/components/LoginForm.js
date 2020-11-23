@@ -26,7 +26,7 @@ class LoginForm extends Component {
 		console.log('handleSubmit')
 
 		axios
-			.post(`${process.env.REACT_BACKEND_BASE_URL}/user/login`, {
+			.post('http://localhost:5000/login/', {
 				username: this.state.username,
 				password: this.state.password
 			})

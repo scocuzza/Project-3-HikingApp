@@ -212,7 +212,7 @@ app.use(cors('http://localhost:3001'));
  * -------------- SERVER ----------------
  */
 
-// Server listens on http://localhost:3005
+// Server listens on http://localhost:5000
 app.listen(5000);
 
 
