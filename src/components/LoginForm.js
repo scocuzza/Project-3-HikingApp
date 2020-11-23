@@ -8,11 +8,16 @@ class LoginForm extends Component {
 		this.state = {
 			username: '',
 			password: '',
+			updateUser: '',
 			redirectTo: null
 		}
 		this.handleSubmit = this.handleSubmit.bind(this)
 		this.handleChange = this.handleChange.bind(this)
 
+	}
+
+	setUpdateUser = (updateUser) => {
+		this.setState({ updateUser: updateUser });
 	}
 
 	handleChange(event) {
@@ -31,16 +36,21 @@ class LoginForm extends Component {
 				password: this.state.password
 			})
 			.then(response => {
-				console.log('login response: ')
-				console.log(response)
+				console.log(response.status)
+				console.log('====login response: ======')
+				console.log(response.data)
 				if (response.status === 200) {
 					// update App.js state
-					this.props.updateUser({
-						loggedIn: true,
-						username: response.data.username
-					})
+					console.log('reponse data', response.data)
+					console.log('reponse config===username>', response.config.data)
+					console.log('reponse config===username>', response.config.data.username)
+					//this.state.updateUser({
+					//	loggedIn: true,
+					//	username: response.data.username
+					//})
 					// update the state to redirect to home
 					this.setState({
+						updateUser: response.data.username,
 						redirectTo: '/'
 					})
 				}
