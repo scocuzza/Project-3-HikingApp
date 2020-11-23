@@ -29,36 +29,31 @@ class Navbar extends Component {
 
 	render() {
 		const loggedIn = this.props.loggedIn;
+		const username = this.props.username
 		console.log('navbar render, props: ')
 		console.log(this.props);
-
 		return (
-			<div>
-
-				<header className="navbar App-header" id="nav-container">
-					<div className="col-4" >
+			<div className="navbar-div">
 						{loggedIn ? (
-							<section className="navbar-section">
-								<Link to="#" className="btn btn-link text-secondary" onClick={this.logout}>
-									<span className="text-secondary">logout</span></Link>
-
-							</section>
+								<ul className="navbar-list">
+									<Link to="#" onClick={this.logout} className="Link">
+										<li className="navbar-right">logout</li>
+									</Link>
+										<li className="navbar-left">{username}</li>
+								</ul>
 						) : (
-								<section className="navbar-section">
-									<Link to="/" className="btn btn-link text-secondary">
-										<span className="text-secondary">home</span>
+								<ul className="navbar-list">
+									<Link to="/" className="Link">
+										<li className="navbar-left">Home</li>
 									</Link>
-									<Link to="/login" className="btn btn-link text-secondary">
-										<span className="text-secondary">login</span>
+									<Link to="/login" className="Link">
+										<li className="navbar-right">Login</li>
 									</Link>
-									<Link to="/register" className="btn btn-link">
-										<span className="text-secondary">sign up</span>
+									<Link to="/register" className="Link">
+										<li className="navbar-right">Sign Up</li>
 									</Link>
-								</section>
+								</ul>
 							)}
-					</div>
-
-				</header>
 			</div>
 
 		);

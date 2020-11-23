@@ -1,24 +1,39 @@
 @import url("https://fonts.google.com/specimen/Fredoka+One");
 
+body {
+  text-align: center;
+  font-size: 12px;
+  margin: 0 auto;
+}
 .App {
   text-align: center;
+}
+.appTitle {
+  margin-top: 10px;
 }
 .main-header {
   background: url("./images/hikingHeader2.jpg");
   height: 250px;
+  width: 100%;
   color: white;
   margin-top: -30px;
 }
 .search-container {
-  margin-top: 30px;
   font-size: large;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
-
-body {
-  text-align: center;
-  font-size: 12px;
+.navbar-div {
+  font-size: 30px;
+  text-align: left;
 }
-
+.navbar-right {
+  float: right;
+}
+.navbar-left {
+  float: left;
+}
 input[type="text"] {
   padding: 5px;
   border: 2px solid #ccc;
@@ -40,6 +55,15 @@ button {
 }
 ul {
   list-style-type: none;
+  margin-top: 10px;
+  color: white;
+}
+ul li {
+  display: inline;
+  padding: 10px;
+}
+.Link {
+  color: white;
 }
 img {
   border-radius: 10px;
