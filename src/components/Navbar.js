@@ -36,19 +36,19 @@ class Navbar extends Component {
 						{loggedIn ? (
 								<ul className="navbar-list">
 									<Link to="#" onClick={this.logout} className="Link">
-										<li>logout</li>
+										<li className="navbar-right">logout</li>
 									</Link>
 								</ul>
 						) : (
 								<ul className="navbar-list">
 									<Link to="/" className="Link">
-										<li>Home</li>
+										<li className="navbar-left">Home</li>
 									</Link>
 									<Link to="/login" className="Link">
-										<li>Login</li>
+										<li className="navbar-right">Login</li>
 									</Link>
 									<Link to="/register" className="Link">
-										<li>Sign Up</li>
+										<li className="navbar-right">Sign Up</li>
 									</Link>
 								</ul>
 							)}

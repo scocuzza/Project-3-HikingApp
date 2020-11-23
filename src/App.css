@@ -13,17 +13,24 @@ body {
   height: 250px;
   width: 100%;
   color: white;
-  margin-top: -10px;
+  margin-top: -30px;
 }
 .search-container {
-  margin-top: 30px;
   font-size: large;
 }
 .navbar-div {
   font-size: 30px;
   text-align: left;
 }
-
+.navbar-right {
+  float: right;
+}
+.navbar-left {
+  float: left;
+}
+.navbar-center {
+  text-align: center;
+}
 input[type="text"] {
   padding: 5px;
   border: 2px solid #ccc;
