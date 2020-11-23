@@ -40,7 +40,7 @@ class Trail extends Component {
 						
 						<div className="card-detail">
 							<p>{this.props.trail.name}</p>
-							<p>Length {this.props.trail.length} Miles</p>
+							<p><b>Length</b> {this.props.trail.length} Miles</p>
 						</div>
 						<p>{this.props.trail.summary}</p>
 						<p>Location: {this.props.trail.location}</p>
