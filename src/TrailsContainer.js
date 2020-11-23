@@ -4,10 +4,10 @@ import TrailImage from './TrailImage';
 
 
 class TrailContainer extends Component {
-	//	constructor(props) {
-	//		super(props)
-	//
-	//	}
+	constructor(props) {
+		super(props)
+
+	}
 
 
 	render() {
