@@ -39,11 +39,7 @@ class LoginForm extends Component {
 					console.log('reponse config===username>', response.config.data)
 					var data = JSON.parse(response.config.data);
 					console.log('reponse config===username>', data.username)
-					//this.state.updateUser({
-					//	loggedIn: true,
-					//	username: response.data.username
-					//})
-					// update the state to redirect to home
+
 					this.props.setUsername(data.username)
 					this.props.loggedIn(true)
 					this.setState({

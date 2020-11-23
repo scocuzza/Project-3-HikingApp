@@ -1,30 +1,33 @@
 import React, { Component } from 'react';
 import { BrowserRouter as BrowserRouter, Route, Link } from 'react-router-dom'
 // components
-import Signup from './components/Signup'
+import Register from './components/Signup'
 import LoginForm from './components/LoginForm'
+import FavHikes from './components/FavHikes'
+import Navbar from './components/Navbar'
 import Home from './components/Home'
+import TrailsContainer from './TrailsContainer';
+import Header from './Header'
+import Search from './Search';
+import Trail from './Trail';
 import axios from 'axios'
-
 class App extends Component {
 	constructor(props) {
 		super(props)
 		this.state = {
 			loggedIn: false,
 			username: null,
-			trails: []
+			trails: [],
+			updateuser: ''
 		}
 	}
 
 	setTrails = (trails) => {
 		this.setState({ trails: trails });
 	}
-	setUsername = (username) => {
-		this.setState({ username: username });
-  }
-  isLoggedIn = (loggedIn) => {
-    this.setState({loggedIn: loggedIn})
-  }
+	setUpdateUser = (updateuser) => {
+		this.setState({ updateuser: updateuser });
+	}
 	componentDidMount() {
 		this.getUser()
 	}
@@ -52,19 +55,31 @@ class App extends Component {
 	render() {
 		return (
 			<>
+
+
 				{
 					this.state.loggedIn &&
 					<p>Hello  {this.state.username}!</p>
 				}
 				<div>
 					<BrowserRouter>
-						<Route exact path="/" render={(props)=> {
-              return <Home 
-              trails={this.state.trails} 
-              username={this.state.username} 
-              loggedIn={this.state.loggedIn} />}}/>
-          	<Route path="/login" render={() => <LoginForm setUsername={this.setUsername} loggedIn={this.isLoggedIn}/>} />
-						<Route path="/register" render={() => <Signup />}/>
+						<Navbar updateUser={this.updateUser} loggedIn={this.state.loggedIn} />
+						<Route
+							exact path="/"
+							component={Home} />
+
+						<Route
+							path="/login"
+							render={() =>
+								<LoginForm
+									updateUser={this.updateUser}
+								/>}
+						/>
+						<Route
+							path="/register"
+							render={() =>
+								<Register />}
+						/>
 					</BrowserRouter>
 				</div>
 
@@ -72,6 +87,9 @@ class App extends Component {
 
 		)
 	}
+
+
+
 }
 
 export default App;

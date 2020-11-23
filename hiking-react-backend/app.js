@@ -241,7 +241,7 @@ app.get('/login-failure', (req, res, next) => {
 
 
 // CREATE TWEET EMBEDDED IN USER
-app.post('/:userId/fav', (req, res) => {
+app.post('/fav', (req, res) => {
 	console.log(req.body);
 	// store new tweet in memory with data from request body
 	const newFav = new Tweet({ favText: req.body.favText });
