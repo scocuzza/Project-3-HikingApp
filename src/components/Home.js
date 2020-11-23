@@ -10,8 +10,6 @@ class Home extends Component {
 		}
 	}
 
-
-
 	setTrails = (trails) => {
 		this.setState({ trails: trails });
 	}
@@ -19,9 +17,8 @@ class Home extends Component {
 	render() {
 		return (
 			<>
-				<Header setTrails={this.setTrails} />
+				<Header setTrails={this.setTrails} updateUser={this.props.updateUser} loggedIn={this.props.loggedIn} />
 				<TrailsContainer trails={this.state.trails} />
-
 			</>
 		)
 	}
