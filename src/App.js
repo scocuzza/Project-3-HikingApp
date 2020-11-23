@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import TrailsContainer from './TrailsContainer';
-import Search from './Search';
+import Header from './Header'
 
 class App extends Component {
-    constructor(props) {
+   
+  constructor(props) {
       super(props)
       this.state={
         trails: [],
@@ -13,12 +14,10 @@ class App extends Component {
   setTrails = (trails) => {
     this.setState({ trails: trails });
   }
-
   render() {
     return(
       <>
-      <h1>Hiking Trail</h1>
-      <Search setTrails={this.setTrails}/>
+      <Header setTrails={this.setTrails}/>
       <TrailsContainer trails={this.state.trails}/>
       </>
     )

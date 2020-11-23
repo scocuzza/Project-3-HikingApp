@@ -1,5 +1,4 @@
-import React, { Component } from "react";
-import TrailImage from "./TrailImage";
+import React, { Component } from 'react';
 /*
 "id": 7011192,
 "name": "Boulder Skyline Traverse",
@@ -10,7 +9,7 @@ import TrailImage from "./TrailImage";
 "starVotes": 93,
 "location": "Superior, Colorado",
 "url": "https://www.hikingproject.com/trail/7011192/boulder-skyline-traverse",
-"imgSqSmall": "https://cdn2.apstatic.com/photos/hike/7039883_small_1555092747.jpg",
+"imgSqSmall": "https://cdn2.apstatic.com/photos/hike/7039883_sqsmall_1555092747.jpg",
 "imgSmall": "https://cdn2.apstatic.com/photos/hike/7039883_small_1555092747.jpg",
 "imgSmallMed": "https://cdn2.apstatic.com/photos/hike/7039883_smallMed_1555092747.jpg",
 "imgMedium": "https://cdn2.apstatic.com/photos/hike/7039883_medium_1555092747.jpg",
@@ -27,31 +26,29 @@ import TrailImage from "./TrailImage";
 */
 
 class Trail extends Component {
-  render() {
-    return (
-      <div className="grid-column">
-        <div className="grid-card">
-          <div className="card-title">
-            <img src={this.props.trail.imgSqSmall}></img>
-            <div className="card-difficulty">
-              <p>
-                <b>Stars</b> {this.props.trail.stars}
-              </p>
-              <p>
-                <span><em>Difficulty:</em></span> {this.props.trail.difficulty.toUpperCase()}
-              </p>
-            </div>
-          </div>
+	render() {
+		return (
+				<div className="column" >
+					<div className="card">
+						<div className="card-title">
+							<img src={this.props.trail.imgSqSmall}></img>
+							<div className="difficulty">
+								<p><b>Stars</b> {this.props.trail.stars}</p>
+								<p><b>Difficulty</b> {this.props.trail.difficulty.toUpperCase()}</p>
+							</div>
+						</div>
+						
+						<div className="card-detail">
+							<p>{this.props.trail.name}</p>
+							<p><b>Length</b> {this.props.trail.length} Miles</p>
+						</div>
+						<p>{this.props.trail.summary}</p>
+						<p>Location: {this.props.trail.location}</p>
+					</div>
+				</div>
+		)
+	}
 
-          <div className="card-detail">
-            <p>{this.props.trail.name}</p>
-            <p>Length {this.props.trail.length} Miles</p>
-          </div>
-          <p>{this.props.trail.summary}</p>
-          <p>Location: {this.props.trail.location}</p>
-        </div>
-      </div>
-    );
-  }
+
 }
 export default Trail;

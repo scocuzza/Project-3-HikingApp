@@ -25,13 +25,11 @@ import React, { Component } from 'react';
 "conditionDate": "2020-09-16 14:37:11"
 */
 
-
-
 class TrailImage extends Component {
 	render() {
 		return (
 			<>
-				<img src={this.props.imgSmall} alt="trail picture"/>
+				<img src={this.props.trail.imgSqSmall}></img>
 			</>
 		)
 	}
