@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
 import TrailsContainer from '../TrailsContainer';
-import Search from '../Search';
-import Trail from '../Trail';
 import Header from '../Header'
 
 class Home extends Component {
@@ -17,6 +15,7 @@ class Home extends Component {
 	setTrails = (trails) => {
 		this.setState({ trails: trails });
 	}
+	
 	render() {
 		return (
 			<>

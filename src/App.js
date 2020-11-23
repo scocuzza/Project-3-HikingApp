@@ -5,9 +5,6 @@ import Signup from './components/Signup'
 import LoginForm from './components/LoginForm'
 import Navbar from './components/Navbar'
 import Home from './components/Home'
-import TrailsContainer from './TrailsContainer';
-import Search from './Search';
-import Trail from './Trail';
 import axios from 'axios'
 
 class App extends Component {
@@ -64,8 +61,7 @@ class App extends Component {
 						<Route exact path="/" component={Home} trails={this.state.trails} />
 						<Route path="/login"
 							render={() => <LoginForm updateUser={this.updateUser} />} />
-						<Route path="/register"
-							render={() => <Signup />}/>
+						<Route path="/register" render={() => <Signup />}/>
 					</BrowserRouter>
 				</div>
 
