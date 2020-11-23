@@ -17,6 +17,9 @@ body {
 }
 .search-container {
   font-size: large;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 .navbar-div {
   font-size: 30px;
