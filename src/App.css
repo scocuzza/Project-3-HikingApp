@@ -8,6 +8,9 @@ body {
 .App {
   text-align: center;
 }
+.appTitle {
+  margin-top: 10px;
+}
 .main-header {
   background: url("./images/hikingHeader2.jpg");
   height: 250px;
