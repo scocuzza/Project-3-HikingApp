@@ -57,10 +57,9 @@ class App extends Component {
 				}
 				<div>
 					<BrowserRouter>
-						<Navbar updateUser={this.state.updateUser} loggedIn={this.state.loggedIn} />
-						<Route exact path="/" component={Home} trails={this.state.trails} />
+						<Route exact path="/" component={Home} trails={this.state.trails} updateUser={this.state.updateUser} loggedIn={this.state.loggedIn} />
 						<Route path="/login"
-							render={() => <LoginForm updateUser={this.updateUser} />} />
+							render={() => <LoginForm updateUser={this.updateUser} updateUser={this.state.updateUser} loggedIn={this.state.loggedIn}/>} />
 						<Route path="/register" render={() => <Signup />}/>
 					</BrowserRouter>
 				</div>
