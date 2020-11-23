@@ -34,9 +34,6 @@ body {
 .navbar-left {
   float: left;
 }
-.navbar-center {
-  text-align: center;
-}
 input[type="text"] {
   padding: 5px;
   border: 2px solid #ccc;
