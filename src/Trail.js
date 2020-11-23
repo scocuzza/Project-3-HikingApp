@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import TrailImage from './TrailImage';
+import React, { Component } from "react";
+import TrailImage from "./TrailImage";
 /*
 "id": 7011192,
 "name": "Boulder Skyline Traverse",
@@ -26,34 +26,32 @@ import TrailImage from './TrailImage';
 "conditionDate": "2020-09-16 14:37:11"
 */
 
-
-
 class Trail extends Component {
-	render() {
-		return (
-			<>
-			<div className="grid-item">
-				<div className="div-item-picture">
-				<TrailImage  imgSmall={this.props.imgSmall} />
-				</div>
-				<div className="div-item-difficulty">
-					Level: {this.props.difficulty}
-				</div>
-				<div className="div-item-information">
-				Name:	    {this.props.name}<br/>
-				Type:	    {this.props.type}<br/>
-				Summary:	{this.props.summary}<br/>
-				Star:	    {this.props.stars}<br/>
-				Location:	{this.props.location}<br/>
-				</div>
+  render() {
+    return (
+      <div className="grid-column">
+        <div className="grid-card">
+          <div className="card-title">
+            <img src={this.props.trail.imgSqSmall}></img>
+            <div className="card-difficulty">
+              <p>
+                <b>Stars</b> {this.props.trail.stars}
+              </p>
+              <p>
+                <span><em>Difficulty:</em></span> {this.props.trail.difficulty.toUpperCase()}
+              </p>
+            </div>
+          </div>
 
-			</div>
-
-
-			</>
-		)
-	}
-
-
+          <div className="card-detail">
+            <p>{this.props.trail.name}</p>
+            <p>Length {this.props.trail.length} Miles</p>
+          </div>
+          <p>{this.props.trail.summary}</p>
+          <p>Location: {this.props.trail.location}</p>
+        </div>
+      </div>
+    );
+  }
 }
 export default Trail;

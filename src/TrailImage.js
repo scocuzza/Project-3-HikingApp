@@ -31,7 +31,7 @@ class TrailImage extends Component {
 	render() {
 		return (
 			<>
-				<img src={this.props.imgSmall}/>
+				<img src={this.props.imgSmall} alt="trail picture"/>
 			</>
 		)
 	}
