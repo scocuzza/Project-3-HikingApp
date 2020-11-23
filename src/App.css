@@ -91,6 +91,7 @@ img {
   margin-bottom: 10px;
   text-align: left;
   background-color: #f1f1f1;
+  border-radius: 10px;
 }
 .card-title {
   display: flex;
