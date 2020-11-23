@@ -4,7 +4,7 @@ const session = require('express-session');
 let passport = require('passport');
 let crypto = require('crypto');
 let LocalStrategy = require('passport-local').Strategy;
-const port = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5000;
 const reactPort = 3000;
 const cors = require('cors');
 
@@ -49,12 +49,25 @@ connection.on('connecting', () => {
 const UserSchema = new mongoose.Schema({
 	username: String,
 	hash: String,
-	salt: String
-});
+	salt: String,
+	fav: [userFavSchema]
+},
+	{ timestamps: true });
 
 
 const User = connection.model('User', UserSchema);
 
+
+
+const UserFavSchema = new mongoose.Schema(
+	{
+		favName: String,
+	},
+	{ timestamps: true }
+);
+
+
+const UserFav = connection.model('UserFav', UserFavSchema);
 
 /**
  * This function is called when the `passport.authenticate()` method is called.
@@ -227,6 +240,20 @@ app.get('/login-failure', (req, res, next) => {
 
 
 
+// CREATE TWEET EMBEDDED IN USER
+app.post('/:userId/fav', (req, res) => {
+	console.log(req.body);
+	// store new tweet in memory with data from request body
+	const newFav = new Tweet({ favText: req.body.favText });
+	// find user in db by id and add new tweet
+	User.findById(req.params.userId, (error, user) => {
+		user.fav.push(newFav);
+		user.save((err, user) => {
+			res.send(`<p> Fav spot added- ${req.body.favText}</p>`);
+		});
+	});
+});
+
 app.use(cors('http://localhost:3000'));
 
 
@@ -235,7 +262,11 @@ app.use(cors('http://localhost:3000'));
  */
 
 // Server listens on http://localhost:5000
-app.listen(5000);
+//app.listen(5000);
+
+app.listen(PORT, () => {
+	console.log(`server is running on port ${PORT}`);
+});
 
 
 
