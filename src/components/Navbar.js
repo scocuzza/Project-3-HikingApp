@@ -33,8 +33,7 @@ class Navbar extends Component {
 		console.log(this.props);
 
 		return (
-			<div>
-
+			<div className="navbar-div">
 				<header className="navbar App-header" id="nav-container">
 					<div className="col-4" >
 						{loggedIn ? (
@@ -51,7 +50,7 @@ class Navbar extends Component {
 									<Link to="/login" className="btn btn-link text-secondary">
 										<span className="text-secondary">login</span>
 									</Link>
-									<Link to="/signup" className="btn btn-link">
+									<Link to="/register" className="btn btn-link">
 										<span className="text-secondary">sign up</span>
 									</Link>
 								</section>
