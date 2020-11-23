@@ -3,7 +3,6 @@ import { BrowserRouter as BrowserRouter, Route, Link } from 'react-router-dom'
 // components
 import Signup from './components/Signup'
 import LoginForm from './components/LoginForm'
-import Navbar from './components/Navbar'
 import Home from './components/Home'
 import axios from 'axios'
 
@@ -13,17 +12,19 @@ class App extends Component {
 		this.state = {
 			loggedIn: false,
 			username: null,
-			trails: [],
-			updateuser: ''
+			trails: []
 		}
 	}
 
 	setTrails = (trails) => {
 		this.setState({ trails: trails });
 	}
-	setUpdateUser = (updateuser) => {
-		this.setState({ updateuser: updateuser });
-	}
+	setUsername = (username) => {
+		this.setState({ username: username });
+  }
+  isLoggedIn = (loggedIn) => {
+    this.setState({loggedIn: loggedIn})
+  }
 	componentDidMount() {
 		this.getUser()
 	}
@@ -57,9 +58,12 @@ class App extends Component {
 				}
 				<div>
 					<BrowserRouter>
-						<Route exact path="/" component={Home} trails={this.state.trails} updateUser={this.state.updateUser} loggedIn={this.state.loggedIn} />
-						<Route path="/login"
-							render={() => <LoginForm updateUser={this.updateUser} updateUser={this.state.updateUser} loggedIn={this.state.loggedIn}/>} />
+						<Route exact path="/" render={(props)=> {
+              return <Home 
+              trails={this.state.trails} 
+              username={this.state.username} 
+              loggedIn={this.state.loggedIn} />}}/>
+          	<Route path="/login" render={() => <LoginForm setUsername={this.setUsername} loggedIn={this.isLoggedIn}/>} />
 						<Route path="/register" render={() => <Signup />}/>
 					</BrowserRouter>
 				</div>

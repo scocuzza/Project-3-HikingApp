@@ -17,7 +17,7 @@ class Home extends Component {
 	render() {
 		return (
 			<>
-				<Header setTrails={this.setTrails} updateUser={this.props.updateUser} loggedIn={this.props.loggedIn} />
+				<Header setTrails={this.setTrails} username={this.props.username} loggedIn={this.props.loggedIn} />
 				<TrailsContainer trails={this.state.trails} />
 			</>
 		)
