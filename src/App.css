@@ -3,7 +3,7 @@
 .App {
   text-align: center;
 }
-header {
+.main-header {
   background: url("./images/hikingHeader2.jpg");
   height: 250px;
   color: white;
