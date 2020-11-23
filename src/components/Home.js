@@ -18,7 +18,7 @@ class Home extends Component {
 		return (
 			<>
 				<Header setTrails={this.setTrails} username={this.props.username} loggedIn={this.props.loggedIn} />
-				<TrailsContainer trails={this.state.trails} />
+				<TrailsContainer trails={this.state.trails} setCurrentTrail={this.props.setCurrentTrail} />
 			</>
 		)
 	}
