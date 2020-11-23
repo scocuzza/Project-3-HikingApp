@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
+import TrailImage from "./TrailImage";
 /*
 "id": 7011192,
 "name": "Boulder Skyline Traverse",
@@ -9,7 +10,7 @@ import React, { Component } from 'react';
 "starVotes": 93,
 "location": "Superior, Colorado",
 "url": "https://www.hikingproject.com/trail/7011192/boulder-skyline-traverse",
-"imgSqSmall": "https://cdn2.apstatic.com/photos/hike/7039883_sqsmall_1555092747.jpg",
+"imgSqSmall": "https://cdn2.apstatic.com/photos/hike/7039883_small_1555092747.jpg",
 "imgSmall": "https://cdn2.apstatic.com/photos/hike/7039883_small_1555092747.jpg",
 "imgSmallMed": "https://cdn2.apstatic.com/photos/hike/7039883_smallMed_1555092747.jpg",
 "imgMedium": "https://cdn2.apstatic.com/photos/hike/7039883_medium_1555092747.jpg",
@@ -25,25 +26,32 @@ import React, { Component } from 'react';
 "conditionDate": "2020-09-16 14:37:11"
 */
 
-
-
 class Trail extends Component {
-	render() {
-		return (
-			<>
+  render() {
+    return (
+      <div className="grid-column">
+        <div className="grid-card">
+          <div className="card-title">
+            <img src={this.props.trail.imgSqSmall}></img>
+            <div className="card-difficulty">
+              <p>
+                <b>Stars</b> {this.props.trail.stars}
+              </p>
+              <p>
+                <span><em>Difficulty:</em></span> {this.props.trail.difficulty.toUpperCase()}
+              </p>
+            </div>
+          </div>
 
-
-				Name:	    {this.props.name} <br />
-					Type:	    {this.props.type}<br />
-					Summary:	{this.props.summary}<br />
-					Star:	    {this.props.stars}<br />
-					Location	{this.props.location}<br />
-
-
-			</>
-		)
-	}
-
-
+          <div className="card-detail">
+            <p>{this.props.trail.name}</p>
+            <p>Length {this.props.trail.length} Miles</p>
+          </div>
+          <p>{this.props.trail.summary}</p>
+          <p>Location: {this.props.trail.location}</p>
+        </div>
+      </div>
+    );
+  }
 }
 export default Trail;
