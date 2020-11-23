@@ -6,6 +6,7 @@ import LoginForm from './components/LoginForm'
 import Navbar from './components/Navbar'
 import Home from './components/Home'
 import TrailsContainer from './TrailsContainer';
+<<<<<<< HEAD
 import Search from './Search';
 import Trail from './Trail';
 import axios from 'axios'
@@ -84,6 +85,30 @@ class App extends Component {
 
 		)
 	}
+=======
+import Header from './Header'
+
+class App extends Component {
+   
+  constructor(props) {
+      super(props)
+      this.state={
+        trails: [],
+      } 
+    }
+
+  setTrails = (trails) => {
+    this.setState({ trails: trails });
+  }
+  render() {
+    return(
+      <>
+      <Header setTrails={this.setTrails}/>
+      <TrailsContainer trails={this.state.trails}/>
+      </>
+    )
+  }
+>>>>>>> development
 }
 
 export default App;

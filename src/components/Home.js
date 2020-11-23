@@ -14,9 +14,10 @@ class Home extends Component {
 	render() {
 		return (
 			<>
-				<h1>Hiking Trail</h1>
-				<Search setTrails={this.setTrails} />
-				{/*<TrailsContainer trails={this.state.trails} />*/}
+
+				<Header setTrails={this.setTrails} />
+				<TrailsContainer trails={this.state.trails} />
+
 			</>
 		)
 	}
