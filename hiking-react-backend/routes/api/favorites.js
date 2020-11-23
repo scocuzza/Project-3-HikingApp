@@ -12,7 +12,7 @@ router.post('/', auth.required, (req, res, next) => {
 
 //Get Users Favorites
 router.get('/', auth.required, (req, res, next) => {
-
+    
 })
 
 module.exports = router;
