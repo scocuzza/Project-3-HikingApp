@@ -33,6 +33,7 @@ class Trail extends Component {
 		return (
 				<div className="column" >
 					<div className="card">
+						<a onClick={() => {this.props.setFavTrails(this.props.trail)}} className="add-favorite">🤍</a>
 						<div className="card-title">
 							<img className="card-image" src={this.props.trail.imgSqSmall} alt=""></img>
 							<div className="difficulty">
