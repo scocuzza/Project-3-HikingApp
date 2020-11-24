@@ -41,9 +41,11 @@ class Navbar extends Component {
 						<Link to="/fav" className="Link">
 							<li className="navbar-right">Fav Hikes</li>
 						</Link>
-
 						<li className="navbar-left">{username}</li>
-						<li className="navbar-left">Show My Fav</li>
+
+						<Link to="/myfavorites" className="Link">
+							<li className="navbar-left">My Favorites</li>
+						</Link>
 					</ul>
 				) : (
 						<ul className="navbar-list">
