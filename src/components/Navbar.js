@@ -33,26 +33,30 @@ class Navbar extends Component {
 		console.log(this.props);
 		return (
 			<div className="navbar-div">
-						{loggedIn ? (
-								<ul className="navbar-list">
-									<Link to="#" onClick={this.logout} className="Link">
-										<li className="navbar-right">logout</li>
-									</Link>
-										<li className="navbar-left">{username}</li>
-								</ul>
-						) : (
-								<ul className="navbar-list">
-									<Link to="/" className="Link">
-										<li className="navbar-left">Home</li>
-									</Link>
-									<Link to="/login" className="Link">
-										<li className="navbar-right">Login</li>
-									</Link>
-									<Link to="/register" className="Link">
-										<li className="navbar-right">Sign Up</li>
-									</Link>
-								</ul>
-							)}
+				{loggedIn ? (
+					<ul className="navbar-list">
+						<Link to="#" onClick={this.logout} className="Link">
+							<li className="navbar-right">logout</li>
+						</Link>
+						<Link to="/fav" className="Link">
+							<li className="navbar-right">Fav Hikes</li>
+						</Link>
+
+						<li className="navbar-left">{username}</li>
+					</ul>
+				) : (
+						<ul className="navbar-list">
+							<Link to="/" className="Link">
+								<li className="navbar-left">Home</li>
+							</Link>
+							<Link to="/login" className="Link">
+								<li className="navbar-right">Login</li>
+							</Link>
+							<Link to="/register" className="Link">
+								<li className="navbar-right">Sign Up</li>
+							</Link>
+						</ul>
+					)}
 			</div>
 
 		);
