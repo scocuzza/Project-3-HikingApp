@@ -39,6 +39,9 @@ class Navbar extends Component {
 						<Link to="#" onClick={this.logout} className="Link">
 							<li className="navbar-right">logout</li>
 						</Link>
+						<Link to="/fav" className="Link">
+							<li className="navbar-right">Fav Hikes</li>
+						</Link>
 
 						<li className="navbar-left">{username}</li>
 					</ul>

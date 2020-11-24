@@ -2,11 +2,13 @@ import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
 import axios from 'axios'
 import Navbar from './Navbar'
+import Header from '../Header'
 
 class FavHikes extends Component {
 	constructor() {
 		super()
 		this.state = {
+			allFav: [],
 			redirectTo: null
 		}
 		this.handleSubmit = this.handleSubmit.bind(this)
@@ -14,6 +16,19 @@ class FavHikes extends Component {
 
 	}
 
+	componentDidMount() {
+
+		axios.get('/api/account/profile/info?username=' + username)
+			.then(res => {
+				this.setState({ allfav: res.data.allfav });
+			})
+
+			.catch(error => {
+				console.log('login error: ')
+				console.log(error);
+
+			})
+	}
 	handleChange(event) {
 		this.setState({
 			[event.target.name]: event.target.value
@@ -25,7 +40,7 @@ class FavHikes extends Component {
 		console.log('handleSubmit')
 
 		axios
-			.put('http://localhost:5000/fav/', {
+			.post('http://localhost:5000/fav/', {
 				username: this.state.username,
 				fav: this.state.fav
 			})
@@ -52,20 +67,28 @@ class FavHikes extends Component {
 			})
 	}
 
+
 	render() {
 		if (this.state.redirectTo) {
 			return <Redirect to={{ pathname: this.state.redirectTo }} />
 		} else {
 			return (
 				<div>
-					<header className="main-header">
-						<Navbar />
-					</header>
+					<Header setTrails={this.setTrails} username={this.props.username} loggedIn={this.props.loggedIn} />
 					<h4>FavHikes</h4>
+
 					<form className="form-horizontal">
 						<div className="form-group">
+							<div className="form-group ">
+								<div className="col-7"></div>
+								<button
+									className="btn btn-primary col-1 col-mr-auto"
+
+									onClick={this.handleSubmit}
+									type="submit">Add Fav</button>
+							</div>
 							<div className="col-1 col-ml-auto">
-								<label className="form-label" htmlFor="fav">Fav Hike</label>
+								<label className="form-label" htmlFor="fav">User Name</label>
 							</div>
 							<div className="col-3 col-mr-auto">
 								<input className="form-input"
@@ -73,7 +96,7 @@ class FavHikes extends Component {
 									id="username"
 									name="username"
 									placeholder="Username"
-									value={this.state.username}
+									value={this.props.username} disabled
 									onChange={this.handleChange}
 								/>
 							</div>
@@ -99,6 +122,15 @@ class FavHikes extends Component {
 
 								onClick={this.handleSubmit}
 								type="submit">Add Fav</button>
+						</div>
+
+						<div className="form-group ">
+							<div className="col-7"></div>
+							<button
+								className="btn btn-primary col-1 col-mr-auto"
+
+								onClick={this.handleFav}
+								type="submit">Show My Fav</button>
 						</div>
 					</form>
 				</div>
