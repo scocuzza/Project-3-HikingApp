@@ -97,10 +97,10 @@ class App extends Component {
                     username={this.state.username} 
                     loggedIn={this.state.loggedIn}
                     currentTrail={this.state.currentTrail}/>}/>
-				<Route path="/fav" render={() => <FavHikes
+				{/* <Route path="/fav" render={() => <FavHikes
 					username={this.state.username}
 					loggedIn={this.state.loggedIn}
-					currentTrail={this.state.currentTrail} />} />
+					currentTrail={this.state.currentTrail} />} /> */}
 				<Route path="/myfavorites" render={() => <MyFavorites
 					trails={this.state.favTrails}
 					username={this.state.username}
