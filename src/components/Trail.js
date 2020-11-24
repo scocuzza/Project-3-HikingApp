@@ -29,11 +29,38 @@ import { BrowserRouter as BrowserRouter, Route, Link } from 'react-router-dom'
 */
 
 class Trail extends Component {
+	constructor(props) {
+		super(props) 
+			this.state = {
+				isFavorite: false
+			}
+	}
+	setFavorite = () => {
+		console.log('setting favorite');
+		if(this.state.isFavorite) {
+			this.setState({
+				isFavorite: false
+			})
+		} else {
+			this.setState({
+				isFavorite: true
+			})
+		}
+	}
 	render() {
+		let favIcon;
+		if (this.state.isFavorite) {
+			favIcon = <a onClick={()=>{this.props.setFavTrails(this.props.trail); this.setFavorite();} } className="add-favorite">❤️</a>;
+		} else {
+			favIcon = <a onClick={()=>{this.props.setFavTrails(this.props.trail); this.setFavorite();} } className="add-favorite">🤍</a>;
+		}
 		return (
 				<div className="column" >
 					<div className="card">
-						<a onClick={() => {this.props.setFavTrails(this.props.trail)}} className="add-favorite">🤍</a>
+						<div className="favorite-div">
+							{/* <a onClick={() => {this.props.removeFavTrails(this.props.trail)}} className="remove-favorite">-</a> */}
+							{favIcon}
+						</div>
 						<div className="card-title">
 							<img className="card-image" src={this.props.trail.imgSqSmall} alt=""></img>
 							<div className="difficulty">

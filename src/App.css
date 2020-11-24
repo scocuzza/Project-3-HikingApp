@@ -47,6 +47,15 @@ input[type="text"] {
   cursor: pointer;
 }
 
+.remove-favorite {
+  float: right;
+  font-size: 40px;
+  cursor: pointer;
+  margin-top: -10px;
+  padding-left: 10px;
+}
+
+
 input[type="text"]:focus {
   border-color: #333;
 }
