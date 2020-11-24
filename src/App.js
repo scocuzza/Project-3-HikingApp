@@ -90,7 +90,8 @@ class App extends Component {
                     username={this.state.username} 
                     loggedIn={this.state.loggedIn}
 					setCurrentTrail={this.setCurrentTrail}
-					setFavTrails={this.setFavTrails} />}}/>
+					setFavTrails={this.setFavTrails}
+					faveTrails={this.state.favTrails} />}}/>
                   <Route path="/login" render={() => <LoginForm setUsername={this.setUsername} loggedIn={this.isLoggedIn}/>} />
             	  <Route path="/register" render={() => <Signup />}/>
                   <Route path="/details" render={() => <Details 
@@ -107,7 +108,8 @@ class App extends Component {
 					loggedIn={this.state.loggedIn}
 					currentTrail={this.state.currentTrail}
 					setCurrentTrail={this.setCurrentTrail}
-					setFavTrails={this.setFavTrails} />} />
+					setFavTrails={this.setFavTrails} 
+					faveTrails={this.state.favTrails} />} />
 			    </BrowserRouter>
 				</div>
 

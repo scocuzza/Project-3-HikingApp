@@ -21,7 +21,7 @@ class Home extends Component {
                 <header className="main-header">
 						<Navbar loggedIn={this.props.loggedIn} username={this.props.username}/>
 				</header>
-				<TrailsContainer loggedIn={this.props.loggedIn} trails={this.props.trails} setCurrentTrail={this.props.setCurrentTrail} setFavTrails={this.props.setFavTrails}/>
+				<TrailsContainer faveTrails={this.props.faveTrails} loggedIn={this.props.loggedIn} trails={this.props.trails} setCurrentTrail={this.props.setCurrentTrail} setFavTrails={this.props.setFavTrails}/>
 			</>
 		)
 	}

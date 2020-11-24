@@ -19,7 +19,8 @@ class TrailContainer extends Component {
 				return <Trail 
 					loggedIn={this.props.loggedIn} 
 					trail={trail} setCurrentTrail={this.props.setCurrentTrail} 
-					setFavTrails={this.props.setFavTrails} />
+					setFavTrails={this.props.setFavTrails}
+					faveTrails={this.props.faveTrails} />
 			})
 		}
 		return (
