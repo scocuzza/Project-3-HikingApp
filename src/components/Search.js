@@ -15,9 +15,7 @@ class Search extends Component {
 	render() {
 		return (
 			<>
-
 				<div className="search-container">
-					<Heading />
 					<div className="child">
 						<form>
 							<label htmlFor="location">Location</label>

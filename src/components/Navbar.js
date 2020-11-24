@@ -38,13 +38,13 @@ class Navbar extends Component {
 						<Link to="#" onClick={this.logout} className="Link">
 							<li className="navbar-right">Logout</li>
 						</Link>
+						<li className="navbar-right">{username}</li>
 						{/* <Link to="/fav" className="Link">
 							<li className="navbar-right">Fav Hikes</li>
 						</Link> */}
 						<Link to="/" className="Link">
 							<li className="navbar-left">Home</li>
 						</Link>
-							<li className="navbar-left">{username}</li>
 						<Link to="/myfavorites" className="Link">
 							<li className="navbar-left">My Favorites</li>
 						</Link>
