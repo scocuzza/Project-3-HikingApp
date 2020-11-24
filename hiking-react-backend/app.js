@@ -46,10 +46,6 @@ connection.on('connecting', () => {
 });
 
 
-
-
-
-
 const UserFavSchema = new mongoose.Schema(
 	{
 
@@ -307,7 +303,7 @@ app.get('/allfaves', (req, res) => {
 
 
 app.use(cors('http://localhost:3000'));
-
+app.use(cors('https://hiking-trails-app-project-3.herokuapp.com/'));
 
 /**
  * -------------- SERVER ----------------

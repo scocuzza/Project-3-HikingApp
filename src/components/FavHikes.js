@@ -16,22 +16,6 @@ class FavHikes extends Component {
 
 	}
 
-	//	axios.get('http://localhost:5000/allfav/${username}`)
-	//
-	//			.then(res => {
-	//	this.setState({ allfav: res.data.allfav });
-	//})
-	//
-	//	.catch(error => {
-	//		console.log('login error: ')
-	//		console.log(error);
-	//
-	//	})
-
-
-
-
-
 	handleChange(event) {
 		this.setState({
 			[event.target.name]: event.target.value
