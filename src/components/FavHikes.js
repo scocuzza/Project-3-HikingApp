@@ -3,6 +3,7 @@ import { Redirect } from 'react-router-dom'
 import axios from 'axios'
 import Navbar from './Navbar'
 import Header from './Header'
+import Trail from './Trail';
 
 class FavHikes extends Component {
 	constructor() {
@@ -48,12 +49,14 @@ class FavHikes extends Component {
 	}
 	handleSubmit(event) {
 		event.preventDefault()
-		console.log('handleFavSubmit')
-
+		console.log('saving the fav handleFavSubmit')
+		const username = event.target.value;
+		console.log('username', username);
+		console.log('fav', this.props.favTrails);
 		axios
 			.post('http://localhost:5000/fav/', {
-				username: this.state.username,
-				fav: this.state.fav
+				username: username,
+				fav: this.props.favTrails
 			})
 			.then(response => {
 				console.log(response.status)
@@ -67,15 +70,45 @@ class FavHikes extends Component {
 					})
 				}
 			}).catch(error => {
-				console.log('login error: ')
+				console.log('there is error error: ')
 				console.log(error);
 
 			})
 	}
 
+	componentDidMount() {
+		console.log('username---->', this.props.username);
+		let username = this.props.username;
+		axios.get(`http://localhost:5000/allfav/${username}`)
+			.then(response => {
+				console.log(response.status)
+				console.log('===The result i got from the fav======')
+				console.log('fav trails===>', response.data.fav)
+				console.log('fav trails===>', response.data.fav[0].favHikingPlace)
+				this.props.setFavTrails(response.data.fav[0].favHikingPlace)
+				if (response.status === 200) {
+					this.setState({
+						redirectTo: '/'
+					})
+				}
+			}).catch(error => {
+				console.log(' get  error: ')
+				console.log(error);
 
-
+			})
+	}
 	render() {
+
+
+		let allTrails = '';
+		if (this.props.favTrails.length > 0) {
+			allTrails = this.props.favTrails.map((trail, index) => {
+				console.log('getting trail data===>', trail);
+				return <Trail loggedIn={this.props.loggedIn} trail={trail}
+					setCurrentTrail={this.props.setCurrentTrail}
+					setFavTrails={this.props.setFavTrails} />
+			})
+		}
 		if (this.state.redirectTo) {
 			return <Redirect to={{ pathname: this.state.redirectTo }} />
 		} else {
@@ -83,51 +116,30 @@ class FavHikes extends Component {
 				<div>
 					<Header setTrails={this.setTrails} username={this.props.username} loggedIn={this.props.loggedIn} />
 					<h4>FavHikes</h4>
-
+					{allTrails}
 					<form className="form-horizontal">
 						<div className="form-group">
 
 							<div className="col-1 col-ml-auto">
 								<label className="form-label" htmlFor="fav">User Name</label>
 							</div>
-							<div className="col-3 col-mr-auto">
-								<input className="form-input"
-									type="text"
-									id="username"
-									name="username"
-									placeholder="Username"
-									value={this.props.username} disabled
-									onChange={this.handleChange}
-								/>
-							</div>
+
 						</div>
 						<div className="form-group">
 							<div className="col-1 col-ml-auto">
 								<label className="form-label" htmlFor="fav">FavHike: </label>
 							</div>
-							<div className="col-3 col-mr-auto">
-								<input className="form-input"
-									placeholder="favHike"
-									type="text"
-									name="fav"
-									value={this.state.fav}
-									onChange={this.handleChange}
-								/>
-							</div>
+
 						</div>
 						<div className="form-group ">
 							<div className="col-7"></div> <br /> <br />
-							<button
-								className="btn btn-primary col-1 col-mr-auto"
 
-								onClick={this.handleSubmit}
-								type="submit">Add Fav</button>
 							<button
 								className="btn btn-primary col-1 col-mr-auto"
 								value={this.props.username}
 
-								onClick={this.handleFav}
-								type="submit">Show My Fav</button>
+								onClick={this.handleSubmit}
+								type="submit">SAVE My Fav</button>
 						</div>
 
 
