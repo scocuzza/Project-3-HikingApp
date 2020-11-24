@@ -106,6 +106,7 @@ class App extends Component {
 					username={this.state.username}
 					loggedIn={this.state.loggedIn}
 					currentTrail={this.state.currentTrail}
+					setCurrentTrail={this.setCurrentTrail}
 					setFavTrails={this.setFavTrails} />} />
 			    </BrowserRouter>
 				</div>
