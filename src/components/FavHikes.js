@@ -95,14 +95,7 @@ class FavHikes extends Component {
 
 					<form className="form-horizontal">
 						<div className="form-group">
-							<div className="form-group ">
-								<div className="col-7"></div>
-								<button
-									className="btn btn-primary col-1 col-mr-auto"
 
-									onClick={this.handleSubmit}
-									type="submit">Add Fav</button>
-							</div>
 							<div className="col-1 col-ml-auto">
 								<label className="form-label" htmlFor="fav">User Name</label>
 							</div>
@@ -132,22 +125,20 @@ class FavHikes extends Component {
 							</div>
 						</div>
 						<div className="form-group ">
-							<div className="col-7"></div>
+							<div className="col-7"></div> <br /> <br />
 							<button
 								className="btn btn-primary col-1 col-mr-auto"
 
 								onClick={this.handleSubmit}
 								type="submit">Add Fav</button>
-						</div>
-
-						<div className="form-group ">
-							<div className="col-7"></div>
 							<button
 								className="btn btn-primary col-1 col-mr-auto"
 
 								onClick={this.handleFav}
 								type="submit">Show My Fav</button>
 						</div>
+
+
 					</form>
 				</div>
 			)
