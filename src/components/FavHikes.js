@@ -38,7 +38,7 @@ class FavHikes extends Component {
 		})
 	}
 
-	handleSubmit(event) {
+	handleFav(event) {
 		event.preventDefault()
 		console.log('handleSubmit')
 		let username = this.props.username;
@@ -66,7 +66,7 @@ class FavHikes extends Component {
 
 			})
 	}
-	handleFavSubmit(event) {
+	handleSubmit(event) {
 		event.preventDefault()
 		console.log('handleFavSubmit')
 
