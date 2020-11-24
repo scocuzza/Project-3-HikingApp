@@ -35,8 +35,8 @@ class Details extends Component {
 		return (
             <>
             <header className="main-header">
-                <Navbar />
-            </header>
+					<Navbar loggedIn={this.props.loggedIn} username={this.props.username}/>
+			</header>
             {/* <h2>{this.props.currentTrail.name}</h2> */}
             <div className="detail-container">
                 <div className="detail-left-side">
