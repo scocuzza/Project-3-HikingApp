@@ -1,38 +1,183 @@
+@import url("https://fonts.google.com/specimen/Fredoka+One");
+
+body {
+  text-align: center;
+  font-size: 12px;
+  margin: 0 auto;
+}
 .App {
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.appTitle {
+  margin-top: 10px;
+  margin-right: 0px;
+  text-align: center;
+  float: none;
 }
+.main-header {
+  background: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4) ), url("./images/hikingHeader2.jpg");
+  height: 250px;
+  width: 100%;
+  color: white;
+  margin-top: -30px;
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.search-container {
+  margin-top: 10px;
+  margin-bottom: 5px;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+  font-size: 20px;
+}
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+ul li {
+  padding: 10px;
+}
+.navbar-div {
+  font-size: 30px;
+}
+.navbar-right {
+  float: right;
+}
+.navbar-left {
+  float: left;
+}
+input[type="text"] {
+  padding: 5px;
+  border: 2px solid #ccc;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+
+.add-favorite {
+  float: right;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.remove-favorite {
+  float: right;
+  font-size: 40px;
+  cursor: pointer;
+  margin-top: -10px;
+  padding-left: 10px;
+}
+
+
+input[type="text"]:focus {
+  border-color: #333;
+}
+
+button {
+  padding: 5px 15px;
+  background-color: darksalmon;
+  border: 0 none;
+  cursor: pointer;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+
+.Link {
   color: white;
 }
-
-.App-link {
-  color: #61dafb;
+.card-image {
+  border-radius: 10px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.grid-container {
+  display: grid;
+  justify-content: space-around;
+  background-color: white;
+  grid-template-columns: auto auto auto auto;
+  row-gap: 10px;
+  column-gap: 10px;
+  padding: 10px;
+}
+.grid-item {
+  text-align: left;
+  padding-right: 5px;
+}
+
+/* Float four columns side by side */
+.column {
+  float: left;
+  padding: 0 10px;
+  max-width: 300px;
+}
+
+/* Remove extra left and right margins, due to padding */
+.row {margin: 0 -5px;}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive columns */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+    margin-bottom: 20px;
   }
-  to {
-    transform: rotate(360deg);
-  }
+}
+
+/* Style the counter cards */
+.card {
+  box-shadow: 6px 6px 12px 0 rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  margin-bottom: 10px;
+  text-align: left;
+  background-color: #f1f1f1;
+  border-radius: 10px;
+}
+.card-title {
+  display: flex;
+  justify-content: space-around;
+}
+.card-detail {
+  display: flex;
+  justify-content: space-around;
+  border-bottom: solid grey;
+}
+.difficulty {
+  margin-top: 5px;
+}
+
+.detail-container {
+  display: flex;
+  /* flex-direction: column; */
+  /* box-shadow: 6px 6px 12px 0 rgba(0, 0, 0, 0.2); */
+  justify-content: space-around;
+  background-color: white;
+  margin-top: 10px;
+  /* border-radius: 10px; */
+  /* background-color: rgb(117, 136, 172); */
+  /* border: solid black 2px; */
+  /* padding: 10px; */
+}
+.detail-left-side {
+  display: flex;
+  flex-direction: column;
+  box-shadow: 6px 6px 12px 0 rgba(0, 0, 0, 0.2);
+  justify-content: space-around;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+.detail-right-side {
+  box-shadow: 6px 6px 12px 0 rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  margin-bottom: 10px;
+  text-align: left;
+}
+.detail-image {
+  box-shadow: 6px 6px 12px 0 rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  /* width: 350px;
+  height: 350px; */
 }
