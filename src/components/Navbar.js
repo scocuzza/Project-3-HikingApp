@@ -43,6 +43,7 @@ class Navbar extends Component {
 							<li className="navbar-right">Fav Hikes</li>
 						</Link> */}
 						<Link to="/" className="Link">
+							<li className="navbar-left">Hiking Trails</li>
 							<li className="navbar-left">Home</li>
 						</Link>
 						<Link to="/myfavorites" className="Link">
@@ -52,6 +53,7 @@ class Navbar extends Component {
 				) : (
 						<ul className="navbar-list">
 							<Link to="/" className="Link">
+								<li className="navbar-left">Hiking Trails</li>
 								<li className="navbar-left">Home</li>
 							</Link>
 							<Link to="/login" className="Link">
