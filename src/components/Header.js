@@ -1,6 +1,7 @@
 import react, {Component} from 'react'
 import Search from './Search'
 import Navbar from './Navbar'
+import Heading from './Heading'
 
 
 

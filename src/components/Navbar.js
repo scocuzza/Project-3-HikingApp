@@ -36,7 +36,7 @@ class Navbar extends Component {
 				{loggedIn ? (
 					<ul className="navbar-list">
 						<Link to="#" onClick={this.logout} className="Link">
-							<li className="navbar-right">logout</li>
+							<li className="navbar-right">Logout</li>
 						</Link>
 						{/* <Link to="/fav" className="Link">
 							<li className="navbar-right">Fav Hikes</li>

@@ -10,6 +10,9 @@ body {
 }
 .appTitle {
   margin-top: 10px;
+  margin-right: 0px;
+  text-align: center;
+  float: none;
 }
 .main-header {
   background: url("./images/hikingHeader2.jpg");
@@ -17,12 +20,11 @@ body {
   width: 100%;
   color: white;
   margin-top: -30px;
+
 }
 .search-container {
   font-size: large;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  text-align: center;
 }
 .navbar-div {
   font-size: 30px;
@@ -177,4 +179,3 @@ ul li {
   /* width: 350px;
   height: 350px; */
 }
-
