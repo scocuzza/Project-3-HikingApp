@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import TrailsContainer from '../TrailsContainer';
-import Header from '../Header'
+import TrailsContainer from './TrailsContainer';
+import Header from './Header'
 
 class Home extends Component {
 	constructor(props) {

@@ -1,6 +1,5 @@
-import './App.css';
 import React, { Component } from 'react';
-import { getAllTrails, getLocationInfo  } from './api';
+import { getAllTrails, getLocationInfo  } from '../api';
 
 class Search extends Component {
 

@@ -4,7 +4,7 @@ import { BrowserRouter as BrowserRouter, Route, Link } from 'react-router-dom'
 import Signup from './components/Signup'
 import LoginForm from './components/LoginForm'
 import Home from './components/Home'
-import Details from './Details'
+import Details from './components/Details'
 import axios from 'axios'
 
 class App extends Component {
