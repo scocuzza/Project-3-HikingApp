@@ -16,19 +16,22 @@ class FavHikes extends Component {
 
 	}
 
-	componentDidMount() {
+	//	axios.get('http://localhost:5000/allfav/${username}`)
+	//
+	//			.then(res => {
+	//	this.setState({ allfav: res.data.allfav });
+	//})
+	//
+	//	.catch(error => {
+	//		console.log('login error: ')
+	//		console.log(error);
+	//
+	//	})
 
-		axios.get('/api/account/profile/info?username=' + username)
-			.then(res => {
-				this.setState({ allfav: res.data.allfav });
-			})
 
-			.catch(error => {
-				console.log('login error: ')
-				console.log(error);
 
-			})
-	}
+
+
 	handleChange(event) {
 		this.setState({
 			[event.target.name]: event.target.value
@@ -38,6 +41,34 @@ class FavHikes extends Component {
 	handleSubmit(event) {
 		event.preventDefault()
 		console.log('handleSubmit')
+		let username = this.props.username;
+		axios.get(`http://localhost:5000/allfav/${username}`)
+			//
+			.then(response => {
+				console.log(response.status)
+				console.log('====added fav response: ======')
+				console.log(response.data)
+				if (response.status === 200) {
+					// update App.js state
+					console.log('reponse data', response.data)
+					console.log('reponse config===username>', response.config.data)
+					var data = JSON.parse(response.config.data);
+					console.log('reponse config===username>', data.username)
+					this.props.setUsername(data.username)
+					this.props.loggedIn(true)
+					this.setState({
+						redirectTo: '/'
+					})
+				}
+			}).catch(error => {
+				console.log('login error: ')
+				console.log(error);
+
+			})
+	}
+	handleFavSubmit(event) {
+		event.preventDefault()
+		console.log('handleFavSubmit')
 
 		axios
 			.post('http://localhost:5000/fav/', {
@@ -66,6 +97,7 @@ class FavHikes extends Component {
 
 			})
 	}
+
 
 
 	render() {
