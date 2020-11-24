@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
 import axios from 'axios'
 import Navbar from './Navbar'
-import Header from '../Header'
+import Header from './Header'
 
 class FavHikes extends Component {
 	constructor() {

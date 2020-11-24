@@ -46,7 +46,6 @@ class Details extends Component {
                 <img className="detail-image" src={this.props.currentTrail.imgMedium} alt=""></img> */}
                 <img className="detail-image" src={this.props.currentTrail.imgSmallMed} alt=""></img>
                 <br/>
-                <img className="detail-image" src={this.props.currentTrail.imgSmallMed} alt=""></img>
                 </div> 
                 <div className="detail-right-side">
                 <h1>Details</h1>
