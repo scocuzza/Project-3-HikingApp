@@ -65,7 +65,7 @@ ul li {
 .Link {
   color: white;
 }
-img {
+.card-image {
   border-radius: 10px;
 }
 
@@ -129,3 +129,37 @@ img {
 .difficulty {
   margin-top: 5px;
 }
+
+.detail-container {
+  display: flex;
+  /* flex-direction: column; */
+  /* box-shadow: 6px 6px 12px 0 rgba(0, 0, 0, 0.2); */
+  justify-content: space-around;
+  background-color: white;
+  margin-top: 10px;
+  /* border-radius: 10px; */
+  /* background-color: rgb(117, 136, 172); */
+  /* border: solid black 2px; */
+  /* padding: 10px; */
+}
+.detail-left-side {
+  display: flex;
+  flex-direction: column;
+  box-shadow: 6px 6px 12px 0 rgba(0, 0, 0, 0.2);
+  justify-content: space-around;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+.detail-right-side {
+  box-shadow: 6px 6px 12px 0 rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  margin-bottom: 10px;
+  text-align: left;
+}
+.detail-image {
+  box-shadow: 6px 6px 12px 0 rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  /* width: 350px;
+  height: 350px; */
+}
+

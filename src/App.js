@@ -5,8 +5,9 @@ import Signup from './components/Signup'
 import LoginForm from './components/LoginForm'
 import FavHikes from './components/FavHikes'
 import Home from './components/Home'
-import Details from './Details'
+import Details from './components/Details'
 import axios from 'axios'
+
 
 class App extends Component {
 	constructor(props) {
@@ -18,7 +19,7 @@ class App extends Component {
 			currentTrail: []
 		}
 	}
-
+	
 	setTrails = (trails) => {
 		this.setState({ trails: trails });
 	}
@@ -61,28 +62,21 @@ class App extends Component {
 	render() {
 		return (
 			<>
-				{
-					this.state.loggedIn &&
-					<p>Hello  {this.state.username}!</p>
-				}
 				<div>
-					<BrowserRouter>
-						<Route exact path="/" render={(props) => {
-							return <Home
-								trails={this.state.trails}
-								username={this.state.username}
-								loggedIn={this.state.loggedIn}
-								setCurrentTrail={this.setCurrentTrail} />
-						}} />
-						<Route path="/login" render={() => <LoginForm setUsername={this.setUsername} loggedIn={this.isLoggedIn} />} />
-						<Route path="/fav" render={() => <FavHikes username={this.state.username}
-							loggedIn={this.state.loggedIn} />} />
-						<Route path="/register" render={() => <Signup />} />
-						<Route path="/details" render={() => <Details
-							username={this.state.username}
-							loggedIn={this.state.loggedIn}
-							currentTrail={this.state.currentTrail} />} />
-					</BrowserRouter>
+          	<BrowserRouter>
+            <Route exact path="/" render={(props)=> {
+                    return <Home 
+                    trails={this.state.trails} 
+                    username={this.state.username} 
+                    loggedIn={this.state.loggedIn}
+                    setCurrentTrail={this.setCurrentTrail} />}}/>
+                  <Route path="/login" render={() => <LoginForm setUsername={this.setUsername} loggedIn={this.isLoggedIn}/>} />
+            <Route path="/register" render={() => <Signup />}/>
+                  <Route path="/details" render={() => <Details 
+                    username={this.state.username} 
+                    loggedIn={this.state.loggedIn}
+                    currentTrail={this.state.currentTrail}/>}/>
+			    </BrowserRouter>
 				</div>
 
 			</>
