@@ -16,10 +16,21 @@ class App extends Component {
 			loggedIn: false,
 			username: null,
 			trails: [],
-			currentTrail: []
+			currentTrail: [],
+			favTrails: [],
 		}
 	}
-	
+	setFavTrails = () => {
+		//if(this.state.loggedIn) {
+			console.log('In setFavTrails');
+			let favArray = this.state.favTrails
+			favArray.push(this.state.currentTrail)
+			this.setState({
+				favTrails: favArray
+			})
+		//}
+	}
+
 	setTrails = (trails) => {
 		this.setState({ trails: trails });
 	}
@@ -69,7 +80,8 @@ class App extends Component {
                     trails={this.state.trails} 
                     username={this.state.username} 
                     loggedIn={this.state.loggedIn}
-                    setCurrentTrail={this.setCurrentTrail} />}}/>
+					setCurrentTrail={this.setCurrentTrail}
+					setFavTrails={this.setFavTrails} />}}/>
                   <Route path="/login" render={() => <LoginForm setUsername={this.setUsername} loggedIn={this.isLoggedIn}/>} />
             <Route path="/register" render={() => <Signup />}/>
                   <Route path="/details" render={() => <Details 

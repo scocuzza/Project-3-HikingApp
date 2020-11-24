@@ -16,7 +16,7 @@ class TrailContainer extends Component {
 		let trailimage = '';
 		if (this.props.trails.length > 0) {
 			allTrails = this.props.trails.map((trail, index) => {
-				return <Trail trail={trail} setCurrentTrail={this.props.setCurrentTrail} />
+				return <Trail trail={trail} setCurrentTrail={this.props.setCurrentTrail} setFavTrails={this.props.setFavTrails} />
 			})
 		}
 		return (
