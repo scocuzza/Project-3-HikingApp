@@ -24,28 +24,24 @@ class FavHikes extends Component {
 
 	handleFav(event) {
 		event.preventDefault()
-		console.log('handleSubmit')
-		let username = this.props.username;
+		console.log('clicked fav button ')
+		const username = event.target.value;
+		console.log('the username-----', username)
+		//axios.get(`http://localhost:5000/allfav/${username}`)
+		//axios.delete(`${process.env.REACT_APP_BASE_URL}/api/articles/${id}`)
 		axios.get(`http://localhost:5000/allfav/${username}`)
-			//
 			.then(response => {
 				console.log(response.status)
 				console.log('====added fav response: ======')
 				console.log(response.data)
+				this.props.setAllfav(response.data.fav)
 				if (response.status === 200) {
-					// update App.js state
-					console.log('reponse data', response.data)
-					console.log('reponse config===username>', response.config.data)
-					var data = JSON.parse(response.config.data);
-					console.log('reponse config===username>', data.username)
-					this.props.setUsername(data.username)
-					this.props.loggedIn(true)
 					this.setState({
 						redirectTo: '/'
 					})
 				}
 			}).catch(error => {
-				console.log('login error: ')
+				console.log(' get  error: ')
 				console.log(error);
 
 			})
@@ -65,12 +61,7 @@ class FavHikes extends Component {
 				console.log(response.data)
 				if (response.status === 200) {
 					// update App.js state
-					console.log('reponse data', response.data)
-					console.log('reponse config===username>', response.config.data)
-					var data = JSON.parse(response.config.data);
-					console.log('reponse config===username>', data.username)
-					this.props.setUsername(data.username)
-					this.props.loggedIn(true)
+
 					this.setState({
 						redirectTo: '/'
 					})
@@ -133,6 +124,7 @@ class FavHikes extends Component {
 								type="submit">Add Fav</button>
 							<button
 								className="btn btn-primary col-1 col-mr-auto"
+								value={this.props.username}
 
 								onClick={this.handleFav}
 								type="submit">Show My Fav</button>

@@ -43,6 +43,7 @@ class Navbar extends Component {
 						</Link>
 
 						<li className="navbar-left">{username}</li>
+						<li className="navbar-left">Show My Fav</li>
 					</ul>
 				) : (
 						<ul className="navbar-list">

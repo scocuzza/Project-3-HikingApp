@@ -250,6 +250,54 @@ app.get('/fav', (req, res, next) => {
 
 });
 
+
+//app.get('/allfav').get(function (req, res) {
+//	UserFav.find({ usernam: req.query.username })
+//		.exec(function (err, user) {
+//			if (err) {
+//				console.log(err);
+//				res.json(err);
+//			} else {
+//				console.log(user.data);
+//				res.json(user.data);
+//			}
+//		});
+//});
+
+app.get('/allfav/:username', (req, res) => {
+	const username = req.params.id
+	console.log('username')
+	UserFav.find({ 'username': username }, function (err, fav) {
+		if (err) return handleError(err);
+
+		if (fav) {
+			res.status(200).json({ fav: fav });
+		}
+	})
+
+
+	//
+	//	UserFav.findById(req.params.id)
+	//		.then((fav) => {
+	//			if (fav) {
+	//				res.status(200).json({ fav: fav });
+	//			} else {
+	//				// If we couldn't find a document with the matching ID
+	//				res.status(404).json({
+	//					error: {
+	//						name: 'DocumentNotFoundError',
+	//						message: 'The provided ID doesn\'t match any documents'
+	//					}
+	//				});
+	//			}
+	//		})
+	//		// Catch any errors that might occur
+	//		.catch((error) => {
+	//			res.status(500).json({ error: error });
+	//		})
+});
+
+
 // CREATE fav EMBEDDED IN USER
 app.post('/fav', (req, res) => {
 	console.log(req.body);
@@ -289,21 +337,21 @@ app.post('/fav', (req, res) => {
  * URI:           /api/articles
  * Description:   Get All Articles
  */
-app.get('/allfaves', (req, res) => {
-	UserFav.find()
-		// Return all Articles as an Array
-		.then((allfaves) => {
-			res.status(200).json({ allMyfaves: allfaves });
-		})
-		// Catch any errors that might occur
-		.catch((error) => {
-			res.status(500).json({ error: error });
-		});
-});
+//app.get('/allfaves', (req, res) => {
+//	UserFav.find()
+//		// Return all Articles as an Array
+//		.then((allfaves) => {
+//			res.status(200).json({ allMyfaves: allfaves });
+//		})
+//		// Catch any errors that might occur
+//		.catch((error) => {
+//			res.status(500).json({ error: error });
+//		});
+//});
 
 
 app.use(cors('http://localhost:3000'));
-app.use(cors('https://hiking-trails-app-project-3.herokuapp.com/'));
+//app.use(cors('https://hiking-trails-app-project-3.herokuapp.com/'));
 
 /**
  * -------------- SERVER ----------------
