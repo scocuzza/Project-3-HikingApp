@@ -36,15 +36,17 @@ class Trail extends Component {
 			}
 	}
 	setFavorite = () => {
-		console.log('setting favorite');
-		if(this.state.isFavorite) {
-			this.setState({
-				isFavorite: false
-			})
-		} else {
-			this.setState({
-				isFavorite: true
-			})
+		if (this.props.loggedIn) {
+			console.log('setting favorite');
+			if(this.state.isFavorite) {
+				this.setState({
+					isFavorite: false
+				})
+			} else {
+				this.setState({
+					isFavorite: true
+				})
+			}
 		}
 	}
 	render() {
