@@ -86,11 +86,11 @@ class FavHikes extends Component {
 				console.log('fav trails===>', response.data.fav)
 				console.log('fav trails===>', response.data.fav[0].favHikingPlace)
 				this.props.setFavTrails(response.data.fav[0].favHikingPlace)
-				if (response.status === 200) {
-					this.setState({
-						redirectTo: '/'
-					})
-				}
+				// if (response.status === 200) {
+				// 	this.setState({
+				// 		redirectTo: '/'
+				// 	})
+				// }
 			}).catch(error => {
 				console.log(' get  error: ')
 				console.log(error);
