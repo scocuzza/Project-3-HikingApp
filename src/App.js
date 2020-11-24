@@ -20,15 +20,15 @@ class App extends Component {
 			favTrails: [],
 		}
 	}
-	setFavTrails = () => {
-		//if(this.state.loggedIn) {
+	setFavTrails = (trail) => {
+		if(this.state.loggedIn) {
 			console.log('In setFavTrails');
 			let favArray = this.state.favTrails
-			favArray.push(this.state.currentTrail)
+			favArray.push(trail)
 			this.setState({
 				favTrails: favArray
 			})
-		//}
+		}
 	}
 
 	setTrails = (trails) => {
