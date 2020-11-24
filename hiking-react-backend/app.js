@@ -40,6 +40,7 @@ const connection = mongoose.createConnection(conn, {
 	useUnifiedTopology: true
 });
 
+mongoose.Promise = global.Promise;
 
 connection.on('connecting', () => {
 	console.log('connected');
@@ -50,9 +51,7 @@ const UserFavSchema = new mongoose.Schema(
 	{
 
 		username: String,
-		favHikingPlace: [{ type: String }],
-		comments: String
-
+		favHikingPlace: Array
 	},
 	{ timestamps: true }
 );
@@ -265,12 +264,15 @@ app.get('/fav', (req, res, next) => {
 //});
 
 app.get('/allfav/:username', (req, res) => {
-	const username = req.params.id
-	console.log('username')
-	UserFav.find({ 'username': username }, function (err, fav) {
+	const username = req.params.username
+	console.log('username', username)
+
+	//Data.find({}).project({ _id: 1, serialno: 1 }).toArray()
+	UserFav.find({ username: username }, function (err, fav) {
 		if (err) return handleError(err);
 
 		if (fav) {
+			console.log('the result===>', fav)
 			res.status(200).json({ fav: fav });
 		}
 	})
@@ -301,32 +303,41 @@ app.get('/allfav/:username', (req, res) => {
 // CREATE fav EMBEDDED IN USER
 app.post('/fav', (req, res) => {
 	console.log(req.body);
-	console.log('the user name---..', req.body.username);
-	console.log('the s=yser fav===', req.body.fav);
+	console.log('the user name--->>>>>', req.body.username);
+	console.log('the ======>', req.body.fav);
 	const username = req.body.username;
+	console.log('justid', req.body.fav[0].id)
+	//const favtrails = JSON.parse(req.body.fav);
+
+
+	//console.log('printing favtrails', favtrails);
+
 
 	// find user in db by id and add new tweet
 	const userFav = new UserFav({
 		username: req.body.username,
 		favHikingPlace: req.body.fav,
-		comments: 'hello'
+		comments: 'we are saving'
 	})
 
-	//userFav.save(function (err, result) {
-	//	if (err) {
-	//		console.log(err);
-	//	}
-	//	else {
-	//		console.log('the result===>', result)
-	//		res.send('<h1>fav place added</h1>');
-	//	}
-	//})
+	console.log('priniting userfav====>', userFav)
 
-	userFav.save()
-		.then((myFav) => {
-			console.log('The user===.', myFav);
-			res.status(200).json({ myFav: myFav });
-		});
+
+	userFav.save(function (err, result) {
+		if (err) {
+			console.log(err);
+		}
+		else {
+			console.log('the result===>', result)
+			res.send('<h1>fav place added</h1>');
+		}
+	})
+
+	//userFav.save()
+	//	.then((myFav) => {
+	//		console.log('The user===.', myFav);
+	//		res.status(200).json({ myFav: myFav });
+	//	});
 
 });
 
