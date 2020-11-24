@@ -62,26 +62,7 @@ class Details extends Component {
                 </div>
                 
             </div>
-            {/* <div className="detail-grid-container">
-            <div className="nothing" >
-					<div className="detail-card">
-						<div className="detail-card-title">
-							<img src={this.props.currentTrail.imgSmallMed} alt=""></img>
-							<div className="detailsDifficulty">
-								<p><b>Stars</b> {this.props.currentTrail.stars}</p>
-								<p><b>Difficulty</b> {this.props.currentTrail.difficulty}</p>
-							</div>
-						</div>
-						
-						<div className="detail-card-detail">
-							<p>{this.props.currentTrail.name}</p>
-							<p><b>Length</b> {this.props.currentTrail.length} Miles</p>
-						</div>
-						<p>{this.props.currentTrail.summary}</p>
-						<p>Location: {this.props.currentTrail.location}</p>
-						</div>
-				</div>
-                </div> */}
+
             </>
 		)
 	}
