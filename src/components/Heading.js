@@ -1,11 +1,9 @@
 
 
 import react, {Component} from 'react'
-import Navbar from './Navbar'
-import Map from './Map'
 
 
-class Details extends Component {
+class Heading extends Component {
   
 	render() {
 		return (
@@ -16,4 +14,4 @@ class Details extends Component {
 	}
 }
 
-export default Details
+export default Heading

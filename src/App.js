@@ -7,6 +7,7 @@ import FavHikes from './components/FavHikes'
 import Home from './components/Home'
 import Details from './components/Details'
 import axios from 'axios'
+import MyFavorites from './components/MyFavorites'
 
 
 class App extends Component {
@@ -83,6 +84,7 @@ class App extends Component {
 			<>
 				<div>
 
+
 					<BrowserRouter>
 						<Route exact path="/" render={(props) => {
 							return <Home
@@ -90,7 +92,8 @@ class App extends Component {
 								username={this.state.username}
 								loggedIn={this.state.loggedIn}
 								setCurrentTrail={this.setCurrentTrail}
-								setFavTrails={this.setFavTrails} />
+								setFavTrails={this.setFavTrails}
+								faveTrails={this.state.favTrails} />
 						}} />
 						<Route path="/login" render={() => <LoginForm setUsername={this.setUsername} loggedIn={this.isLoggedIn} />} />
 						<Route path="/register" render={() => <Signup />} />
@@ -99,12 +102,30 @@ class App extends Component {
 							loggedIn={this.state.loggedIn}
 							currentTrail={this.state.currentTrail} />} />
 						<Route path="/fav" render={() => <FavHikes
+							trails={this.state.favTrails}
 							username={this.state.username}
 							loggedIn={this.state.loggedIn}
 							favTrails={this.state.favTrails}
+							setCurrentTrail={this.setCurrentTrail}
 							setFavTrails={this.setFavTrails}
 							currentTrail={this.state.currentTrail} />} />
+
+
+						{/*
+						<Route path="/myfavorites" render={() => <MyFavorites
+							trails={this.state.favTrails}
+							username={this.state.username}
+							loggedIn={this.state.loggedIn}
+							currentTrail={this.state.currentTrail}
+							setCurrentTrail={this.setCurrentTrail}
+							setFavTrails={this.setFavTrails}
+							faveTrails={this.state.favTrails} />} />*/}
+
+
 					</BrowserRouter>
+
+
+
 				</div>
 
 			</>

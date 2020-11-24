@@ -10,23 +10,35 @@ body {
 }
 .appTitle {
   margin-top: 10px;
+  margin-right: 0px;
+  text-align: center;
+  float: none;
 }
 .main-header {
-  background: url("./images/hikingHeader2.jpg");
+  background: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4) ), url("./images/hikingHeader2.jpg");
   height: 250px;
   width: 100%;
   color: white;
   margin-top: -30px;
+
 }
 .search-container {
-  font-size: large;
+  margin-top: 10px;
+  margin-bottom: 5px;
   display: flex;
-  flex-direction: column;
   justify-content: center;
+  align-items: center;
+  font-size: 20px;
+}
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+ul li {
+  padding: 10px;
 }
 .navbar-div {
   font-size: 30px;
-  text-align: left;
 }
 .navbar-right {
   float: right;
@@ -68,15 +80,7 @@ button {
   -webkit-border-radius: 5px;
   border-radius: 5px;
 }
-ul {
-  list-style-type: none;
-  margin-top: 10px;
-  color: white;
-}
-ul li {
-  display: inline;
-  padding: 10px;
-}
+
 .Link {
   color: white;
 }
@@ -177,4 +181,3 @@ ul li {
   /* width: 350px;
   height: 350px; */
 }
-

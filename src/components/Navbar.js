@@ -36,13 +36,16 @@ class Navbar extends Component {
 				{loggedIn ? (
 					<ul className="navbar-list">
 						<Link to="#" onClick={this.logout} className="Link">
-							<li className="navbar-right">logout</li>
+							<li className="navbar-right">Logout</li>
 						</Link>
-						<Link to="/fav" className="Link">
+						<li className="navbar-right">{username}</li>
+						{/* <Link to="/fav" className="Link">
 							<li className="navbar-right">Fav Hikes</li>
+						</Link> */}
+						<Link to="/" className="Link">
+							<li className="navbar-left">Hiking Trails</li>
+							<li className="navbar-left">Home</li>
 						</Link>
-						<li className="navbar-left">{username}</li>
-
 						<Link to="/myfavorites" className="Link">
 							<li className="navbar-left">My Favorites</li>
 						</Link>
@@ -50,6 +53,7 @@ class Navbar extends Component {
 				) : (
 						<ul className="navbar-list">
 							<Link to="/" className="Link">
+								<li className="navbar-left">Hiking Trails</li>
 								<li className="navbar-left">Home</li>
 							</Link>
 							<Link to="/login" className="Link">
