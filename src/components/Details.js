@@ -44,9 +44,10 @@ class Details extends Component {
                 <h3 className="detail-header">{this.props.currentTrail.name}</h3>  */}
                 {/* <img className="detail-image" src={this.props.currentTrail.imgMedium} alt=""></img>
                 <img className="detail-image" src={this.props.currentTrail.imgMedium} alt=""></img> */}
-                <img className="detail-image" src={this.props.currentTrail.imgSmallMed} alt=""></img>
+                <img className="detail-image" src={this.props.currentTrail.imgMedium} alt=""></img>
                 <br/>
                 </div> 
+                <Map lat={this.props.currentTrail.latitude} long={this.props.currentTrail.longitude}/>
                 <div className="detail-right-side">
                 <h1>Details</h1>
                 <h3 className="detail-header">{this.props.currentTrail.name}</h3>
@@ -60,7 +61,6 @@ class Details extends Component {
                     <p><b>Condition Details: </b> {this.props.currentTrail.conditionDetails}</p>
                     <p><b>Condition Date: </b> {this.props.currentTrail.conditionDate}</p>
                 </div>
-                <Map lat={this.props.currentTrail.latitude} long={this.props.currentTrail.longitude}/>
             </div>
             {/* <div className="detail-grid-container">
             <div className="nothing" >
