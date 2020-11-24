@@ -5,10 +5,12 @@ https://hiking-trails-app-project-3.herokuapp.com/ - does no include backend com
 # Technologies for this Build
 React
 React Router
+React Google Maps
 Axios,
 Node.js,
 MongoDB,
 Express,
+Mongoose,
 CSS
 
 # React Components for front end code
@@ -41,6 +43,7 @@ The ability to finish the backend piece of the application that saves favorites 
 
 
 # Lessons Learned
+Planning and laying out the project and detailied tasks and responsibilities as much as possible it crucial to the team working towards one unified scope for the project.  Communication and sharing information is important so that each team member knows what they are responsible for and do not step on the work of each other.  Commits and getting the respository updated for changes to the code is important so that each members is able to pull an updated version of the code often to ensure they are current and changes do not impact their code as well.
 
 # Approach:
 Originally set out to build an application where a user could look for hiking trails in their local area
