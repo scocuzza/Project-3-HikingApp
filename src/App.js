@@ -100,6 +100,13 @@ class App extends Component {
 					username={this.state.username}
 					loggedIn={this.state.loggedIn}
 					currentTrail={this.state.currentTrail} />} />
+				<Route path="/myfavorites" render={(props)=> {
+                    return <Home 
+                    trails={this.state.favTrails} 
+                    username={this.state.username} 
+                    loggedIn={this.state.loggedIn}
+					setCurrentTrail={this.setCurrentTrail}
+					setFavTrails={this.setFavTrails} />}} />
 			    </BrowserRouter>
 				</div>
 
