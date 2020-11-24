@@ -1,4 +1,5 @@
 import react, {Component} from 'react'
+import Map from './Map'
 import Search from './Search'
 import Navbar from './Navbar'
 
@@ -60,7 +61,7 @@ class Details extends Component {
                     <p><b>Condition Details: </b> {this.props.currentTrail.conditionDetails}</p>
                     <p><b>Condition Date: </b> {this.props.currentTrail.conditionDate}</p>
                 </div>
-                
+                <Map lat={this.props.currentTrail.latitude} long={this.props.currentTrail.longitude}/>
             </div>
             {/* <div className="detail-grid-container">
             <div className="nothing" >
@@ -87,4 +88,4 @@ class Details extends Component {
 	}
 }
 
-export default Details;
+export default Details

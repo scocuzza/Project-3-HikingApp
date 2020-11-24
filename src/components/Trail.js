@@ -51,7 +51,6 @@ class Trail extends Component {
 					</div>
 				</div>
 		)
-		
 	}
 
 
