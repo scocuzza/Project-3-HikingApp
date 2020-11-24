@@ -4,7 +4,7 @@ const session = require('express-session');
 let passport = require('passport');
 let crypto = require('crypto');
 let LocalStrategy = require('passport-local').Strategy;
-const port = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5000;
 const reactPort = 3000;
 const cors = require('cors');
 
@@ -46,13 +46,27 @@ connection.on('connecting', () => {
 });
 
 
+const UserFavSchema = new mongoose.Schema(
+	{
+
+		username: String,
+		favHikingPlace: [{ type: String }],
+		comments: String
+
+	},
+	{ timestamps: true }
+);
 const UserSchema = new mongoose.Schema({
 	username: String,
 	hash: String,
-	salt: String
-});
+	salt: String,
 
 
+},
+	{ timestamps: true });
+
+
+const UserFav = connection.model('UserFav', UserFavSchema);
 const User = connection.model('User', UserSchema);
 
 
@@ -225,17 +239,82 @@ app.get('/login-failure', (req, res, next) => {
 });
 
 
+app.get('/fav', (req, res, next) => {
+
+	const form = '<h1>Login Page</h1><form method="POST" action="/fav">\
+    Enter Username:<br><input type="text" name="username">\
+    <br>Enter fav:<br><input type="text" name="fav">\
+    <br><br><input type="submit" value="Submit"></form>';
+
+	res.send(form);
+
+});
+
+// CREATE fav EMBEDDED IN USER
+app.post('/fav', (req, res) => {
+	console.log(req.body);
+	console.log('the user name---..', req.body.username);
+	console.log('the s=yser fav===', req.body.fav);
+	const username = req.body.username;
+
+	// find user in db by id and add new tweet
+	const userFav = new UserFav({
+		username: req.body.username,
+		favHikingPlace: req.body.fav,
+		comments: 'hello'
+	})
+
+	//userFav.save(function (err, result) {
+	//	if (err) {
+	//		console.log(err);
+	//	}
+	//	else {
+	//		console.log('the result===>', result)
+	//		res.send('<h1>fav place added</h1>');
+	//	}
+	//})
+
+	userFav.save()
+		.then((myFav) => {
+			console.log('The user===.', myFav);
+			res.status(200).json({ myFav: myFav });
+		});
+
+});
+
+
+/**
+ * Action:        INDEX
+ * Method:        GET
+ * URI:           /api/articles
+ * Description:   Get All Articles
+ */
+app.get('/allfaves', (req, res) => {
+	UserFav.find()
+		// Return all Articles as an Array
+		.then((allfaves) => {
+			res.status(200).json({ allMyfaves: allfaves });
+		})
+		// Catch any errors that might occur
+		.catch((error) => {
+			res.status(500).json({ error: error });
+		});
+});
 
 
 app.use(cors('http://localhost:3000'));
-
+app.use(cors('https://hiking-trails-app-project-3.herokuapp.com/'));
 
 /**
  * -------------- SERVER ----------------
  */
 
 // Server listens on http://localhost:5000
-app.listen(5000);
+//app.listen(5000);
+
+app.listen(PORT, () => {
+	console.log(`server is running on port ${PORT}`);
+});
 
 
 
