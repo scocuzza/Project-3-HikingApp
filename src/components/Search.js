@@ -17,6 +17,7 @@ class Search extends Component {
 			<>
 				<div className="search-container">
 					<Heading />
+                <h1 class="appTitle">Hiking Trails</h1>
 					<div className="child">
 						<form>
 							<label htmlFor="location">Location</label>

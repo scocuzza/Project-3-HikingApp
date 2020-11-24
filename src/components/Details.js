@@ -1,5 +1,6 @@
 import react, {Component} from 'react'
 import Map from './Map'
+import Search from './Search'
 import Navbar from './Navbar'
 
 /*

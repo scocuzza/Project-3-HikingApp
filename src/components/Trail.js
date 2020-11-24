@@ -34,9 +34,9 @@ class Trail extends Component {
 				<div className="column" >
 					<div className="card">
 						<div className="card-title">
-							<img src={this.props.trail.imgSqSmall} alt=""></img>
+							<img className="card-image" src={this.props.trail.imgSqSmall} alt=""></img>
 							<div className="difficulty">
-								<p><b>Stars</b> {this.props.trail.stars}</p>
+								<p><b>Stars</b> {this.props.trail.stars} </p>
 								<p><b>Difficulty</b> {this.props.trail.difficulty.toUpperCase()}</p>
 							</div>
 						</div>

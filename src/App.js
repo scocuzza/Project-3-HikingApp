@@ -7,6 +7,7 @@ import Home from './components/Home'
 import Details from './components/Details'
 import axios from 'axios'
 
+
 class App extends Component {
 	constructor(props) {
 		super(props)
@@ -17,7 +18,7 @@ class App extends Component {
       currentTrail: []
 		}
 	}
-
+	
 	setTrails = (trails) => {
 		this.setState({ trails: trails });
 	}
