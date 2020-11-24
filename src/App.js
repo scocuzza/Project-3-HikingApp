@@ -65,20 +65,20 @@ class App extends Component {
 					<p>Hello  {this.state.username}!</p>
 				}
 				<div>
-          <BrowserRouter>
-						<Route exact path="/" render={(props)=> {
+          	<BrowserRouter>
+			<Route exact path="/" render={(props)=> {
               return <Home 
               trails={this.state.trails} 
               username={this.state.username} 
               loggedIn={this.state.loggedIn}
               setCurrentTrail={this.setCurrentTrail} />}}/>
-          		<Route path="/login" render={() => <LoginForm setUsername={this.setUsername} loggedIn={this.isLoggedIn}/>} />
-						<Route path="/register" render={() => <Signup />}/>
+          	<Route path="/login" render={() => <LoginForm setUsername={this.setUsername} loggedIn={this.isLoggedIn}/>} />
+			<Route path="/register" render={() => <Signup />}/>
             <Route path="/details" render={() => <Details 
               username={this.state.username} 
               loggedIn={this.state.loggedIn}
               currentTrail={this.state.currentTrail}/>}/>
-					</BrowserRouter>
+			</BrowserRouter>
 				</div>
 
 			</>

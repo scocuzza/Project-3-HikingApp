@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { getAllTrails, getLocationInfo  } from '../api';
+import Heading from './Heading'
 
 class Search extends Component {
 
@@ -15,7 +16,7 @@ class Search extends Component {
 		return (
 			<>
 				<div className="search-container">
-                    <h1 class="appTitle">Hiking Trails</h1>
+					<Heading />
 					<div className="child">
 						<form>
 							<label htmlFor="location">Location</label>
