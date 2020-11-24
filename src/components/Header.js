@@ -1,6 +1,6 @@
 import react, {Component} from 'react'
 import Search from './Search'
-import Navbar from './components/Navbar'
+import Navbar from './Navbar'
 
 
 
