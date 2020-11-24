@@ -68,8 +68,6 @@ class Trail extends Component {
 		return (
 			<div className="column" >
 				<div className="card">
-					image small:	{this.props.trail.imgSqSmall}
-					{this.props.trail.length}
 					<div className="favorite-div">
 						{/* <a onClick={() => {this.props.removeFavTrails(this.props.trail)}} className="remove-favorite">-</a> */}
 						{favIcon}
