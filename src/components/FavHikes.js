@@ -115,7 +115,6 @@ class FavHikes extends Component {
 			return (
 				<div>
 					<Header setTrails={this.setTrails} username={this.props.username} loggedIn={this.props.loggedIn} />
-					<h4>FavHikes</h4>
 					{allTrails}
 					<form className="form-horizontal">
 						<div className="form-group">
