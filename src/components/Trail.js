@@ -49,15 +49,15 @@ class Trail extends Component {
 			}
 		}
 	}
-	componentDidMount() {
-		this.checkIsFave(this.props.trail)
-	}
-	checkIsFave = (trail) => {
-		if((this.props.faveTrails).includes(trail))
-		this.setState({
-			isFavorite: true
-		})
-	}
+	//componentDidMount() {
+	//	this.checkIsFave(this.props.trail)
+	//}
+	//checkIsFave = (trail) => {
+	//	if((this.props.faveTrails).includes(trail))
+	//	this.setState({
+	//		isFavorite: true
+	//	})
+	//}
 	render() {
 		let favIcon;
 		if (this.state.isFavorite) {

@@ -39,16 +39,16 @@ class Navbar extends Component {
 							<li className="navbar-right">Logout</li>
 						</Link>
 						<li className="navbar-right">{username}</li>
-						{/* <Link to="/fav" className="Link">
+						{ <Link to="/fav" className="Link">
 							<li className="navbar-right">Fav Hikes</li>
-						</Link> */}
+						</Link>}
 						<Link to="/" className="Link">
 							<li className="navbar-left">Hiking Trails</li>
 							<li className="navbar-left">Home</li>
 						</Link>
-						<Link to="/myfavorites" className="Link">
+						{/*{<Link to="/myfavorites" className="Link">
 							<li className="navbar-left">My Favorites</li>
-						</Link>
+						</Link>}*/}
 					</ul>
 				) : (
 						<ul className="navbar-list">

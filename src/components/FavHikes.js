@@ -103,7 +103,7 @@ class FavHikes extends Component {
 		let allTrails = '';
 		if (this.props.favTrails.length > 0) {
 			allTrails = this.props.favTrails.map((trail, index) => {
-				console.log('getting trail data===>', trail);
+				console.log(trail);
 				return <Trail loggedIn={this.props.loggedIn} trail={trail}
 					setCurrentTrail={this.props.setCurrentTrail}
 					setFavTrails={this.props.setFavTrails} />
