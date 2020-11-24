@@ -7,6 +7,7 @@ import FavHikes from './components/FavHikes'
 import Home from './components/Home'
 import Details from './components/Details'
 import axios from 'axios'
+import MyFavorites from './components/MyFavorites'
 
 
 class App extends Component {
@@ -100,13 +101,12 @@ class App extends Component {
 					username={this.state.username}
 					loggedIn={this.state.loggedIn}
 					currentTrail={this.state.currentTrail} />} />
-				<Route path="/myfavorites" render={(props)=> {
-                    return <Home 
-                    trails={this.state.favTrails} 
-                    username={this.state.username} 
-                    loggedIn={this.state.loggedIn}
-					setCurrentTrail={this.setCurrentTrail}
-					setFavTrails={this.setFavTrails} />}} />
+				<Route path="/myfavorites" render={() => <MyFavorites
+					trails={this.state.favTrails}
+					username={this.state.username}
+					loggedIn={this.state.loggedIn}
+					currentTrail={this.state.currentTrail}
+					setFavTrails={this.setFavTrails} />} />
 			    </BrowserRouter>
 				</div>
 
