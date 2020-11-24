@@ -16,22 +16,15 @@ class App extends Component {
 			loggedIn: false,
 			username: null,
 			trails: [],
-<<<<<<< HEAD
 			allfav: [],
-			currentTrail: []
+			currentTrail: [],
+			favTrails: []
 		}
 	}
 	setAllfav = (allfav) => {
 		this.setState({ allfav: allfav });
 	}
 
-
-
-=======
-			currentTrail: [],
-			favTrails: [],
-		}
-	}
 	setFavTrails = (trail) => {
 		if(this.state.loggedIn) {
 			let favArray = this.state.favTrails
@@ -46,8 +39,6 @@ class App extends Component {
 			})
 		}
 	}
-
->>>>>>> fe14dcefcc9f8514c72f7cbfa95eed84bfb91084
 	setTrails = (trails) => {
 		this.setState({ trails: trails });
 	}
@@ -91,29 +82,8 @@ class App extends Component {
 		return (
 			<>
 				<div>
-<<<<<<< HEAD
-					<BrowserRouter>
-						<Route exact path="/" render={(props) => {
-							return <Home
-								trails={this.state.trails}
-								username={this.state.username}
-								loggedIn={this.state.loggedIn}
-								setCurrentTrail={this.setCurrentTrail} />
-						}} />
-						<Route path="/login" render={() => <LoginForm setUsername={this.setUsername} loggedIn={this.isLoggedIn} />} />
-						<Route path="/register" render={() => <Signup />} />
-						<Route path="/details" render={() => <Details
-							username={this.state.username}
-							loggedIn={this.state.loggedIn}
-							currentTrail={this.state.currentTrail} />} />
-						<Route path="/fav" render={() => <FavHikes
-							username={this.state.username}
-							loggedIn={this.state.loggedIn}
-							currentTrail={this.state.currentTrail} />} />
-					</BrowserRouter>
-=======
-          	<BrowserRouter>
-            <Route exact path="/" render={(props)=> {
+				<BrowserRouter>
+				<Route exact path="/" render={(props)=> {
                     return <Home 
                     trails={this.state.trails} 
                     username={this.state.username} 
@@ -121,13 +91,16 @@ class App extends Component {
 					setCurrentTrail={this.setCurrentTrail}
 					setFavTrails={this.setFavTrails} />}}/>
                   <Route path="/login" render={() => <LoginForm setUsername={this.setUsername} loggedIn={this.isLoggedIn}/>} />
-            <Route path="/register" render={() => <Signup />}/>
+            	  <Route path="/register" render={() => <Signup />}/>
                   <Route path="/details" render={() => <Details 
                     username={this.state.username} 
                     loggedIn={this.state.loggedIn}
                     currentTrail={this.state.currentTrail}/>}/>
+				<Route path="/fav" render={() => <FavHikes
+					username={this.state.username}
+					loggedIn={this.state.loggedIn}
+					currentTrail={this.state.currentTrail} />} />
 			    </BrowserRouter>
->>>>>>> fe14dcefcc9f8514c72f7cbfa95eed84bfb91084
 				</div>
 
 			</>
