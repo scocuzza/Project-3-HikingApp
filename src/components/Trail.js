@@ -35,35 +35,31 @@ class Trail extends Component {
 				isFavorite: false
 			}
 	}
-	setFavorite = () => {
-		if (this.props.loggedIn) {
-			console.log('setting favorite');
-			if(this.state.isFavorite) {
-				this.setState({
-					isFavorite: false
-				})
-			} else {
-				this.setState({
-					isFavorite: true
-				})
-			}
-		}
-	}
 	componentDidMount() {
 		this.checkIsFave(this.props.trail)
 	}
-	checkIsFave = (trail) => {
-		if((this.props.faveTrails).includes(this.props.trail))
-		this.setState({
-			isFavorite: true
+	checkIsFave = () => {
+		let idArray = [];
+		this.props.faveTrails.forEach(trail=> {
+			idArray.push(trail.id)
 		})
+		if((idArray).includes(this.props.trail.id)) {
+			this.setState({
+				isFavorite: true
+			})
+		} else {
+			this.setState({
+				isFavorite: false
+			})
+		}
+		
 	}
 	render() {
 		let favIcon;
 		if (this.state.isFavorite) {
-			favIcon = <a onClick={()=>{this.props.setFavTrails(this.props.trail); this.setFavorite();} } className="add-favorite">❤️</a>;
+			favIcon = <a onClick={()=>{this.props.setFavTrails(this.props.trail); this.checkIsFave();} } className="add-favorite">❤️</a>;
 		} else {
-			favIcon = <a onClick={()=>{this.props.setFavTrails(this.props.trail); this.setFavorite();} } className="add-favorite">🤍</a>;
+			favIcon = <a onClick={()=>{this.props.setFavTrails(this.props.trail); this.checkIsFave();} } className="add-favorite">🤍</a>;
 		}
 		return (
 				<div className="column" >
