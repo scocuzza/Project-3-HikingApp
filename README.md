@@ -34,6 +34,7 @@ Favorites schema - to save user's favorite trails in App
 # API's used in project
 API: https://developer.mapquest.com/documentation/ - used to get longitude/latitude coordinates based on town/state
 API: https://www.hikingproject.com/data - used to locate trails in your area based on longitude/latitude
+API: https://maps.googleapis.com/maps/api/js - google maps react api for javascript
  
 
 # Additional features that I would like to add at a later date:
