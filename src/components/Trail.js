@@ -53,7 +53,7 @@ class Trail extends Component {
 		this.checkIsFave(this.props.trail)
 	}
 	checkIsFave = (trail) => {
-		if((this.props.faveTrails).includes(trail))
+		if((this.props.faveTrails).includes(this.props.trail))
 		this.setState({
 			isFavorite: true
 		})
